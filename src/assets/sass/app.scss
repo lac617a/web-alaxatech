@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+ul {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #E4E4E7;
+  &:hover {
+    color: #0B1D40;
+  }
+}
+button {
+  outline: none;
+  border: none;
+  padding: 12px 24px;
+  color: #FFFF;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  width: max-content;
+  background: #0147FF;
+  box-shadow: 0px 4px 12px rgba(1, 71, 255, 0.32);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 300ms;
+  &:hover {
+    box-shadow: 0px 4px 12px rgba(1, 71, 255, 0.8);
+  }
+}
+input{
+  all: unset;
+  transition: 300ms;
+  &:invalid {
+    border-bottom: 1px solid tomato;
+  }
+}
+html {scroll-behavior: smooth;}
+@import './landing.scss';
+
+main {
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(300px);
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+// HEADER
+.l-header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  @include flexbox($justify: space-between);
+  width: 100vw;
+  padding: 32px 84px;
+  .nav {
+    @include flexbox($gap: 1rem);
+  }
+}
+// END-HEADER
+
+// LAYOUTS
+.l-container:not(.l-video) {
+  scroll-snap-align: start;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  &-sm {max-width: 540px;}
+  &-md {max-width: 720px;}
+  &-lg {max-width: 960px;}
+  &-xl {max-width: 1140px;}
+  &-xxl {max-width: 1320px;}
+  &-fluid {max-width: 100%;}
+}
+[class^='l-container-'] {
+  scroll-snap-align: start;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.vh {height: 100vh;}
+
+.l-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Poppins';
+  @include font(700, 40px, 60px);
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    @include screen(46px, 6px);
+    border-radius: 24px;
+  }
+}
+// END-LAYOUTS
+
+// FOOTER
+.l-footer {
+  scroll-snap-align: start;
+  @include flexbox($gap: 10rem);
+  &-title {
+    &::before {
+      background: $color-brand;
+    }
+  }
+  &-aside{
+    @include flexbox($dir: column, $justify: flex-end, $gap: 3rem);
+    padding: 84px;
+    max-width: 325px;
+    @include screen();
+    background: $dark-primary;
+  }
+  &-boxing {
+    &__network {
+      @include flexbox($gap: 12px);
+      margin-top: 4px;
+      a {
+        @include flexbox();
+        border: $secondary 1px solid;
+        border-radius: 50%;
+        padding: 8px;
+        transition: 300ms;
+        &:hover {
+          background-color: $secondary;
+        }
+        &:hover:not(:last-child) {
+          svg path {fill: #FFF;}
+        }
+        &:hover:last-child {
+          svg path {stroke: #FFF;}
+        }
+      }
+    }
+    h3:not(.copyright) {
+      @include font(400, 14px, 24px);
+      color: $neutro-400;
+    }
+    p {
+      @include font(500, 16px, 24px);
+      color: $neutro-50;
+    }
+    .copyright {
+      @include font(600, 14px, 20px);
+      color: $neutro-500;
+    }
+  }
+  &-box {
+    height: 100%;
+    @include flexbox($dir: column, $justify: center);
+  }
+  &-form {
+    &__wrap {
+      margin: 48px 0;
+      @include flexbox($gap: 3rem);
+    }
+    &__primary, &__secondary {
+      display: grid;
+      gap: 2rem;
+    }
+    .form {
+      &-field {
+        @include flexbox($dir: column);
+      }
+      &-label {
+        @include font(600, 14px, 24px);
+        color: $neutro-800;
+      }
+      &-input {
+        max-width: 264px;
+        border-bottom: 1px solid $neutro-300;
+        @include font(500, 17px, 24px);
+        color: $neutro-400;
+        padding-bottom: 12px;
+        &::placeholder {
+          color: $neutro-400;
+        }
+      }
+    }
+    .btn {
+      background-color: transparent;
+      border: 1px solid $color-brand;
+      color: $color-brand;
+    }
+  }
+}
+// END-FOOTER

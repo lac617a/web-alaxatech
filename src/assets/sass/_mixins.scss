@@ -1,0 +1,23 @@
+@mixin screen($w: 100%, $h: 100%) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flexbox($dir: row, $wrap: nowrap, $align: flex-start, $justify: flex-start, $gap: 0) {
+  display: flex;
+  flex-flow: $dir $wrap;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin font($w, $s, $lh) {
+  font-size: $s;
+  font-weight: $w;
+  line-height: $lh;
+}
+
+@mixin font_movil($s, $lh) {
+  font-size: $s;
+  line-height: $lh;
+}
