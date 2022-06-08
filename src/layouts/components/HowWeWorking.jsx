@@ -3,17 +3,23 @@ import Container from '../Container';
 import Investigation from '../../assets/img/icons/Investigation.svg';
 import Development from '../../assets/img/icons/Development.svg';
 import Create from '../../assets/img/icons/Create.svg';
+import CircleMid from '../../assets/img/vectores/circle-mid.svg';
 
 export default function HowWeWorking() {
   return (
     <Container size="xxl">
       <div className="l-working vh">
         <div className="l-working-left">
-          <h2 className="l-working-title l-title">¿Cómo trabajamos?</h2>
-          <p>Estamos en un mundo virtualizado donde el usuario busca todo con mayor rapidez y seguridad.</p>
-          <p>Por ello, nuestro enfoque esta basado en el aprendizaje, optimización y creación constante de soluciones.</p>
+          <div className="l-working-left__content">
+            <h2 className="l-working-title l-title">¿Cómo trabajamos?</h2>
+            <p>Estamos en un mundo virtualizado donde el usuario busca todo con mayor rapidez y seguridad.</p>
+            <p>Por ello, nuestro enfoque esta basado en el aprendizaje, optimización y creación constante de soluciones.</p>
+          </div>
         </div>
         <div className="l-working-right">
+          <figure className="l-working-right__circle">
+            <img src={CircleMid} alt="vector circle mid" />
+          </figure>
           <ul className="l-working-nav">
             <li className="l-working-item">
               <figure className="l-working-figure">

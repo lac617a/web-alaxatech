@@ -12,7 +12,7 @@ import LayoutFooter from '../layouts/LayoutFooter';
 
 export default function Home() {
   return (
-    <main>
+    <main className="scroll-snap vh">
       <Container size="xxl">
         <Hero />
       </Container>

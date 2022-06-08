@@ -39,6 +39,7 @@
           font-size: 52px;
           line-height: 64px;
           color: #7097FF;
+          height: 64px;
         }
         h2 {
           font-size: 48px;
@@ -56,10 +57,16 @@
     }
   }
   &-video {
-    border: 1px solid red;
     grid-column: 6 / -1;
     grid-row: 1 / -1;
     background-color: rgba(0,0,0,.4);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+    video {
+      position: relative;
+      z-index: -1;
+      @include screen();
+      object-fit: cover;
+    }
   }
 }
 // SERVICE
@@ -148,6 +155,7 @@
   padding: 100px 84px 60px 84px;
   &-title {
     padding-left: 90px;
+    color: $dark-primary;
     &::before {
       left: 90px !important;
       background: $color-brand;
@@ -158,11 +166,152 @@
 .l-working {
   @include flexbox();
   flex: 1 1;
-  &-left {
+  &-title {
+    color: $dark-primary;
+    margin-bottom: 32px;
+    &::before {
+      background-color: $color-brand;
+    }
+  }
+  &-left, &-right {
+    position: relative;
     max-width: 50%;
+    display: grid;
+    place-items: center;
+    padding: 6rem;
+    @include screen();
+  }
+  &-left {
+    &__content {
+      p {
+        max-width: 360px;
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
   }
   &-right {
-    max-width: 50%;
     background-color: $dark-primary;
+    &__circle {
+      position: absolute;
+      right: 0;
+      top: 5rem;
+    }
+  }
+  &-nav {
+    display: grid;
+    gap: 50px;
+  }
+  &-item {
+    position: relative;
+    @include flexbox($gap: 2rem);
+    &:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      top: 4rem;
+      left: 1.6rem;
+      width: 0px;
+      height: 60px;
+      border-left: 1px dashed $secondary;
+    }
+    &__content {
+      h3 {
+        font-family: 'Poppins';
+        @include font(600, 20px, 30px);
+        color: $neutro-200;
+        margin-bottom: 8px;
+      }
+      p {
+        font-weight: 400;
+        color: $neutro-400;
+        max-width: 350px;
+      }
+    }
+  }
+}
+// WhatOurClientSay
+.l-client {
+  &-header {
+    padding-top: 5rem;
+  }
+}
+// WhatOurClientSay and OurTeam for title
+.l-client-title, .l-team-title {
+  font-size: 32px !important;
+  line-height: 48px !important;
+  color: $dark-primary;
+  text-align: center;
+  &::before {
+    left: 48% !important;
+    background: $color-brand;
+  }
+}
+// OurTeam
+.l-team {
+  position: relative;
+  &-header {
+    padding-top: 5rem;
+  }
+  &-wrap {
+    height: calc(100% - 230px);
+    border: 1px solid red;
+    max-width: 1000px;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin: 3rem auto;
+  }
+  &-box {
+    scroll-snap-align: start;
+    @include flexbox($wrap: wrap, $justify: space-around, $gap: 2rem);
+    margin-bottom: 2rem;
+  }
+  &-figure {
+    img {
+      max-width: 300px;
+      @include screen();
+    }
+  }
+  &-arrow {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    @include flexbox($dir: column, $gap: 2.5rem);
+    .btn {
+      background-color: transparent;
+      padding: 0;
+      box-shadow: none;
+      &:hover {
+        svg path {fill: $secondary;}
+      }
+      svg path {transition: 300ms;}
+    }
+  }
+}
+// VIDEO
+.l-video {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76));
+  &-into {
+    max-width: 850px;
+    text-align: center;
+    p {color: $neutro-300;}
+  }
+  &-title {
+    font-size: 48px !important;
+    color: $secondary;
+    margin-bottom: 20px;
+  }
+  &-view {
+    position: absolute;
+    z-index: -1;
+    @include screen();
+    video {
+      @include screen();
+      object-fit: cover;
+    }
   }
 }

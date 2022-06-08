@@ -1,6 +1,41 @@
 import React from 'react';
 
 export default function LayoutFooter() {
+  const formDate = {
+    name: '',
+    phone: '',
+    email: '',
+    company: '',
+    message: '',
+  };
+  const [form, setForm] = React.useState({...formDate});
+  const handleFormData = e => {
+    const formatKey = e.target.id.substring(5);
+    switch (formatKey) {
+      case 'name':
+        setForm({...form, [formatKey]: e.target.value})
+        break;
+      case 'phone':
+        setForm({...form, [formatKey]: e.target.value})
+        break;
+      case 'email':
+        setForm({...form, [formatKey]: e.target.value})
+        break;
+      case 'company':
+        setForm({...form, [formatKey]: e.target.value})
+        break;
+      case 'message':
+        setForm({...form, [formatKey]: e.target.value})
+        break;
+    
+      default:
+        throw new Error('Invalid data Form')
+    };
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(form);
+  }
   return (
     <footer className="l-footer vh">
       <aside className="l-footer-aside">
@@ -40,30 +75,30 @@ export default function LayoutFooter() {
       </aside>
       <div className="l-footer-box">
         <h2 className="l-footer-title l-title">Contáctanos</h2>
-        <form className="l-footer-form">
+        <form onSubmit={handleSubmit} className="l-footer-form">
           <div className="l-footer-form__wrap">
             <div className="l-footer-form__primary">
               <div className="form-field">
                 <label className="form-label" htmlFor="form-name">Nombre*</label>
-                <input className="form-input" type="text" id="form-name" placeholder="Nombre completo" />
+                <input className="form-input" required onChange={handleFormData} type="text" id="form-name" placeholder="Nombre completo" />
               </div>
               <div className="form-field">
-                <label className="form-label" htmlFor="form-tel">Teléfono*</label>
-                <input className="form-input" type="tel" id="form-tel" placeholder="Ingrese número" pattern="[0-9]*" />
+                <label className="form-label" htmlFor="form-phone">Teléfono*</label>
+                <input className="form-input" required onChange={handleFormData} type="tel" id="form-phone" placeholder="Ingrese número" pattern="[0-9]*" />
               </div>
               <div className="form-field">
                 <label className="form-label" htmlFor="form-email">Email*</label>
-                <input className="form-input" type="email" id="form-email" placeholder="ejemplo@ejemplo.com" />
+                <input className="form-input" required onChange={handleFormData} type="email" id="form-email" placeholder="ejemplo@ejemplo.com" />
               </div>
             </div>
             <div className="l-footer-form__secondary">
               <div className="form-field">
                 <label className="form-label" htmlFor="form-company">Compañía</label>
-                <input className="form-input" type="text" id="form-company" placeholder="Nombre de empresa" />
+                <input className="form-input" onChange={handleFormData} type="text" id="form-company" placeholder="Nombre de empresa" />
               </div>
               <div className="form-field">
                 <label className="form-label" htmlFor="form-message">Mensaje</label>
-                <input className="form-input" type="text" id="form-message" placeholder="Escribir un mensaje" />
+                <input className="form-input" onChange={handleFormData} type="text" id="form-message" placeholder="Escribir un mensaje" />
               </div>
             </div>
           </div>

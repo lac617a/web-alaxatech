@@ -21,6 +21,7 @@ ul {
 a{
   text-decoration: none;
   color: #E4E4E7;
+  transition: 300ms;
   &:hover {
     color: #0B1D40;
   }
@@ -53,15 +54,13 @@ input{
 html {scroll-behavior: smooth;}
 @import './landing.scss';
 
-main {
+.scroll-snap {
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(300px);
   scroll-snap-type: y mandatory;
-  height: 100vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-
 // HEADER
 .l-header {
   position: fixed;
@@ -71,13 +70,13 @@ main {
   width: 100vw;
   padding: 32px 84px;
   .nav {
-    @include flexbox($gap: 1rem);
+    @include flexbox($gap: 2rem);
   }
 }
 // END-HEADER
 
 // LAYOUTS
-.l-container:not(.l-video) {
+.l-container {
   scroll-snap-align: start;
   max-width: 1000px;
   margin: 0 auto;
@@ -203,3 +202,27 @@ main {
   }
 }
 // END-FOOTER
+
+
+// fade typed-cursor
+.typed-cursor{
+  opacity: 1;
+  display: none;
+  animation: typedjsBlink 0.7s infinite;
+  -webkit-animation: typedjsBlink 0.7s infinite;
+  animation: typedjsBlink 0.7s infinite;
+}
+@keyframes typedjsBlink{
+  50% { opacity: 0.0; }
+}
+@-webkit-keyframes typedjsBlink{
+  0% { opacity: 1; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1; }
+}
+.typed-fade-out{
+  opacity: 0;
+  transition: opacity .25s;
+  -webkit-animation: 0;
+  animation: 0;
+}
