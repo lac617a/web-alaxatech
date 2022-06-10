@@ -232,8 +232,41 @@
 }
 // WhatOurClientSay
 .l-client {
+  background-color: #F2F6FF;
   &-header {
     padding-top: 5rem;
+  }
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height: calc(100% - 127px);
+    .card {
+      &:nth-child(1) {
+        grid-column: 2 / 3 span;
+        grid-row: 3 / 3 span;
+      }
+      &:nth-child(2) {
+        grid-column: 5 / 3 span;
+        grid-row: 2 / 3 span;
+      }
+      &:nth-child(3) {
+        margin-top: 2rem;
+        grid-column:  3 span / -1;
+        grid-row: 2 / 3 span;
+      }
+      &:nth-child(4) {
+        margin-left: 3rem;
+        margin-top: 1rem;
+        grid-column: 3 / 3 span;
+        grid-row: 6 / 3 span;
+      }
+      &:nth-child(5) {
+        margin-right: 3rem;
+        grid-column: 3 span / -2;
+        grid-row: 6 / 3 span;
+      }
+    }
   }
 }
 // WhatOurClientSay and OurTeam for title
@@ -255,7 +288,6 @@
   }
   &-wrap {
     height: calc(100% - 230px);
-    border: 1px solid red;
     max-width: 1000px;
     overflow: hidden;
     overflow-y: scroll;
@@ -267,10 +299,49 @@
     margin-bottom: 2rem;
   }
   &-figure {
+    position: relative;
+    transition: 300ms;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 5px 0;
+      background-color: rgba(0, 0, 0, 0.06);
+      transition: 300ms;
+    }
+    &:hover {
+      &::before {
+        content: "";
+        background-color: rgba(0, 0, 0, 0);
+        top: 80%;
+      }
+      img {filter: grayscale(0%);}
+    }
     img {
+      position: relative;
+      z-index: -1;
+      mix-blend-mode: luminosity;
       max-width: 300px;
       @include screen();
+      filter: grayscale(100%);
+      transition: 300ms;
     }
+  }
+  &-figcaption {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 1rem;
+    inset: 50% 0 5px 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 26.97%, rgba(0, 0, 0, 0.87037) 100%);
+    p, h3 {
+      font-family: 'Poppins';
+      color: #FFFFFF;
+      text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.48);
+    }
+    p { @include font(400, 18px, 26px); }
+    h3 { @include font(600, 20px, 28px); }
   }
   &-arrow {
     position: absolute;

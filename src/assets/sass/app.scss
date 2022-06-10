@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@400;600;800&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -203,6 +203,60 @@ html {scroll-behavior: smooth;}
 }
 // END-FOOTER
 
+
+// CARD
+.card {
+  &-header {
+    filter: drop-shadow(1px 6px 3px rgba(0, 0, 0, .1));
+    margin-bottom: 32px;
+  }
+  &-description {
+    padding: 20px;
+    max-width: 336px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 24px;
+      border-radius: 3px;
+      transform: rotate(45deg);
+      @include screen(28px, 28px);
+      background-color: #FFFFFF;
+    }
+    p {
+      @include font(600, 13px, 18px);
+      color: $neutro-600;
+      max-width: 100%;
+      width: max-content;
+    }
+  }
+  &-content {
+    @include flexbox($align: center, $gap: 13px);
+  }
+  &-figure {
+    @include screen(56px, 56px);
+    img {
+      @include screen();
+      object-fit: cover;
+      clip-path: circle(50% at 50% 50%);
+      background-color: #C4C4C4;
+    }
+  }
+  &-descriptor {
+    h3 {
+      @include font(700, 15px, 19px);
+      color: $neutro-800;
+    }
+    p {
+      @include font(400, 14px, 18px);
+      color: $neutro-500;
+    }
+  }
+}
+// END-CARD
 
 // fade typed-cursor
 .typed-cursor{
