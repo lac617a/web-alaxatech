@@ -2,6 +2,8 @@ import React from 'react';
 import AOS from "aos";
 import Typed from 'typed.js';
 import "aos/dist/aos.css";
+import {HashLink} from 'react-router-hash-link';
+
 
 export default function Hero() {
   // Create reference to store the DOM element containing the animation
@@ -27,6 +29,7 @@ export default function Hero() {
     return () => {
       // Make sure to destroy Typed instance during cleanup
       // to prevent memory leaks
+      AOS.refresh();
       typed.current.destroy();
     }
   }, []);
@@ -44,7 +47,7 @@ export default function Hero() {
             </hgroup>
             <p>Somos una empresa de desarrollo digital, que combina el diseño y el software para crear increíbles productos digitales.</p>
           </div>
-          <button className="btn">Contactar</button>
+          <HashLink to="/#contact" aria-label="Contactar" className="btn">Contactar</HashLink>
         </div>
         <figure className="l-hero-video">
           <video src={require('../../assets/video/video_hero_alaxatech.mp4')} loop autoPlay muted></video>

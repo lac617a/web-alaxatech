@@ -26,7 +26,7 @@ a{
     color: #0B1D40;
   }
 }
-button {
+button, .btn {
   outline: none;
   border: none;
   padding: 12px 24px;
@@ -41,6 +41,7 @@ button {
   cursor: pointer;
   transition: 300ms;
   &:hover {
+    color: #FFFF;
     box-shadow: 0px 4px 12px rgba(1, 71, 255, 0.8);
   }
 }
@@ -53,6 +54,7 @@ input{
 }
 html {scroll-behavior: smooth;}
 @import './landing.scss';
+@import './layouts';
 
 .scroll-snap {
   scroll-snap-type: mandatory;
@@ -279,4 +281,8 @@ html {scroll-behavior: smooth;}
   transition: opacity .25s;
   -webkit-animation: 0;
   animation: 0;
+}
+
+.slick-track {
+  columns: 280px auto;
 }
