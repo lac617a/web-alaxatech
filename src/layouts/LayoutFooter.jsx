@@ -37,7 +37,7 @@ export default function LayoutFooter() {
     console.log(form);
   }
   return (
-    <footer className="l-footer vh" id='contact'>
+    <footer className="l-footer vh" id="contact" data-snap-current="false">
       <aside className="l-footer-aside">
         <div className="l-footer-boxing">
           <h3>Síguenos</h3>

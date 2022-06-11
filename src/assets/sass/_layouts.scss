@@ -12,6 +12,25 @@
   }
 }
 
+.l-dots {
+  position: absolute;
+  z-index: 100;
+  top: 40%;
+  left: 2rem;
+  @include flexbox($dir: column, $gap: 12px);
+  .l-dot {
+    display: block;
+    border-radius: 50%;
+    @include screen(6px, 6px);
+    background-color: rgba(0, 0, 0, 0.2);
+    &.active {
+      background-color: #7097FF;
+      height: 32px;
+      border-radius: 10px;
+    }
+  }
+}
+
 .l-card {
   scroll-snap-align: start;
   @include flexbox($wrap: wrap, $justify: space-around, $gap: 2rem);

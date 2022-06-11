@@ -34,7 +34,7 @@ export default function Hero() {
     }
   }, []);
   return (
-    <div id="hero" className="l-hero vh" data-aos="fade-in">
+    <div id="hero" className="l-hero vh" data-aos="fade-in" data-snap-current="true">
       <div className="l-hero-container">
         <div className="l-hero-into">
           <h3 className="l-hero-into__text">
