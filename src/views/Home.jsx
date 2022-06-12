@@ -1,44 +1,64 @@
 import React from 'react';
 import Hero from '../layouts/components/Hero';
-import Service from '../layouts/components/Service';
-import Project from '../layouts/components/Project';
-import HowWeWorking from '../layouts/components/HowWeWorking';
-import WhatOurClientSay from '../layouts/components/WhatOurClientSay';
-import OurTeam from '../layouts/components/OurTeam';
 import Video from '../layouts/components/Video';
 import LayoutFooter from '../layouts/LayoutFooter';
-
+import Service from '../layouts/components/Service';
+import Project from '../layouts/components/Project';
+import OurTeam from '../layouts/components/OurTeam';
+import HowWeWorking from '../layouts/components/HowWeWorking';
+import useNavigationToTop from '../utils/useNavigationToTop';
+import WhatOurClientSay from '../layouts/components/WhatOurClientSay';
 
 export default function Home() {
   const mainRef = React.useRef(null);
   const dotsRef = React.useRef(null);
-  const carouselPositions = [];
   let halfContainer;
-  
+  const carouselPositions = [];
+  const unsuscribe = ['hero', 'video'];
+  const navigateToTop = useNavigationToTop();
 
-  const goCarousel = (children, childrenIndex) => {
-    const snapCurrent = children;
+  const goCarousel = (children, childrenIndex, scrollTop) => {
     const halfContainers = halfContainer;
     const currentScrollTop = mainRef.current.scrollTop;
+    const arrayOfChildren = [...dotsRef.current.children];
     const currentMiddlePosition = currentScrollTop + halfContainers;
-    for (let i = 0; i < carouselPositions.length; i++) {
-      if (currentMiddlePosition > carouselPositions[i][0] && currentMiddlePosition < carouselPositions[i][1]) {
-        if (currentScrollTop === carouselPositions[i][0]) {
-          [...dotsRef.current.children].forEach((span, index) => {
-            if (carouselPositions.indexOf(carouselPositions[i]) === index) {
-              if (childrenIndex === index) {
-                console.log(snapCurrent)
-                snapCurrent.setAttribute('data-snap-current', 'true');
-                span.classList.add('active');
-              }
-            } else {
-              snapCurrent.setAttribute('data-snap-current', 'false');
-              span.classList.remove('active');
-            }
-          });
-        }
+
+    if (scrollTop > 0 && carouselPositions.length < 1) {
+      getCarouselPosition();
+      if (children.id === window.location.hash.substring(3)) {
+        children.style.opacity = 1;
+        children.setAttribute('data-snap-current', 'true');
       }
-    }
+      arrayOfChildren.forEach(span => {
+        if (span.dataset.linkTo === window.location.hash.substring(2))
+          span.classList.add('active');
+        else span.classList.remove('active');
+      });
+    } else {
+      for (let i = 0; i < carouselPositions.length; i++) {
+        if (currentMiddlePosition > carouselPositions[i][0] && currentMiddlePosition < carouselPositions[i][1]) {
+          if (currentScrollTop === carouselPositions[i][0]) {
+            arrayOfChildren.forEach((span, index) => {
+              if (carouselPositions.indexOf(carouselPositions[i]) === index) {
+                if (childrenIndex === index) {
+                  children.style.opacity = 1;
+                  children.setAttribute('data-snap-current', 'true');
+                  window.location.hash = span.dataset.linkTo;
+                  span.classList.add('active');
+                } else {
+                  if (!unsuscribe.includes(children.id)) {
+                    children.style.opacity = 0;
+                  }
+                  children.setAttribute('data-snap-current', 'false');
+                }
+              } else {
+                span.classList.remove('active');
+              };
+            });
+          };
+        };
+      };
+    };
   };
 
   const getCarouselPosition = () => {
@@ -46,10 +66,15 @@ export default function Home() {
     const arrayChildren = [...mainRef.current?.children];
     arrayChildren.slice(1).forEach(children => {
       const snapCurrent = children.getAttribute('data-snap-current');
+      children.style.transition = 'all .3s ease-out 0s';
       if (snapCurrent === 'true') {
-        cloneElement += '<span class="l-dot active"></span>';
+        children.style.opacity = 1;
+        cloneElement += `<span class="l-dot active" data-link-to="/#${children.id}"></span>`;
       } else {
-        cloneElement += '<span class="l-dot"></span>';
+        if (!unsuscribe.includes(children.id)) {
+          children.style.opacity = 0;
+        }
+        cloneElement += `<span class="l-dot" data-link-to="/#${children.id}"></span>`;
       }
       carouselPositions.push([
         children.offsetTop,
@@ -60,26 +85,34 @@ export default function Home() {
     halfContainer = mainRef.current.offsetHeight / 2;
   };
 
-  const handleScroll = () => {
+  const handleScroll = (e) => {
     const arrayChildren = [...mainRef.current?.children];
     arrayChildren.slice(1).forEach((children, childrenIndex) => {
-      goCarousel(children, childrenIndex);
+      goCarousel(children, childrenIndex, e.target.scrollTop);
     });
-    // console.log(mainRef.current.scrollTop)
-  }
+  };
+
+  const handleDots = (e) => {
+    if(!e.target.dataset.dots) {
+      navigateToTop(e.target.dataset.linkTo, e.target);
+    }
+    e.stopPropagation();
+  };
   
   React.useEffect(() => {
+    window.addEventListener('hashchange', handleScroll);
     window.addEventListener('resize', getCarouselPosition);
 
     return () => {
       getCarouselPosition();
       window.removeEventListener('resize', getCarouselPosition);
+      window.removeEventListener('hashchange', handleScroll);
     };
   }, []);
 
   return (
     <main className="scroll-snap vh" ref={mainRef} onScroll={handleScroll}>
-      <div className="l-dots" ref={dotsRef}>
+      <div className="l-dots" ref={dotsRef} onClickCapture={handleDots} data-dots="true">
         <span className="l-dot active"></span>
         <span className="l-dot"></span>
       </div>

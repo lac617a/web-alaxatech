@@ -3,9 +3,9 @@ import {useNavigate} from "react-router-dom";
 export default function useNavigationToTop() {
   const navigate = useNavigate();
 
-  const navigateAndReset = to => {
+  const navigateAndReset = (to, node) => {
     navigate(to, {replace: true});
-    window.scrollTo(0, 0);
+    node.scrollIntoView()
   };
 
   return navigateAndReset;

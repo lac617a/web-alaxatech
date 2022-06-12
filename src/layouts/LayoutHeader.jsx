@@ -1,20 +1,15 @@
 import React from 'react';
 import LogoDefault from '../assets/img/Logo-default.svg';
 import LogoWhite from '../assets/img/Logo-white.svg';
-import {Link, useLocation} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import {HashLink} from 'react-router-hash-link';
-import useNavigationToTop from '../utils/useNavigationToTop';
 
 export default function LayoutHeader() {
   const {hash} = useLocation();
-  const forLogoWhite = ['#service', 'lo'];
-  const getLogo = forLogoWhite.includes(hash)  ?  LogoWhite : LogoDefault;
-  const navigateToTop = useNavigationToTop();
-
-  const navigateAndReset = e => {
-    e.preventDefault();
-    navigateToTop('/');
-  };
+  const changeLogo = ['#service', '#video', '#contact'];
+  const changeTextColor = ['#project', '#what-our-client-say', '#team', '#contact'];
+  const changeColor = changeTextColor.includes(hash) ? 'neutro-700' : 'neutro-200';
+  const getLogo = changeLogo.includes(hash)  ?  LogoWhite : LogoDefault;
 
   return (
     <header className="l-header">
@@ -23,11 +18,21 @@ export default function LayoutHeader() {
       </figure>
       <nav className="navbar">
         <ul className="nav">
-          <li className="nav-item"><Link aria-label="Home" to="/" onClick={navigateAndReset}>Home</Link></li>
-          <li className="nav-item"><HashLink aria-label="Service" to="/#service">Servicios</HashLink></li>
-          <li className="nav-item"><HashLink aria-label="Project" to="/#project">Proyectos</HashLink></li>
-          <li className="nav-item"><HashLink aria-label="Team" to="/#team">Equipo</HashLink></li>
-          <li className="nav-item"><HashLink aria-label="Contact" to="/#contact">Contáctanos</HashLink></li>
+          <li className="nav-item">
+            <HashLink className={changeColor} aria-label="Home" to="/#hero">Home</HashLink>
+          </li>
+          <li className="nav-item">
+            <HashLink className={changeColor} aria-label="Service" to="/#service">Servicios</HashLink>
+          </li>
+          <li className="nav-item">
+            <HashLink className={changeColor} aria-label="Project" to="/#project">Proyectos</HashLink>
+          </li>
+          <li className="nav-item">
+            <HashLink className={changeColor} aria-label="Team" to="/#team">Equipo</HashLink>
+          </li>
+          <li className="nav-item">
+            <HashLink className={changeColor} aria-label="Contact" to="/#contact">Contáctanos</HashLink>
+          </li>
         </ul>
       </nav>
     </header>

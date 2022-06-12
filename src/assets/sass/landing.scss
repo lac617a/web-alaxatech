@@ -314,7 +314,7 @@
   place-items: center;
   overflow: hidden;
   scroll-snap-align: start;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.76));
+  background-color: rgba(0, 0, 0, 0.76);
   &-into {
     max-width: 850px;
     text-align: center;
