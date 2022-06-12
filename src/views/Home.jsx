@@ -108,6 +108,7 @@ export default function Home() {
       window.removeEventListener('resize', getCarouselPosition);
       window.removeEventListener('hashchange', handleScroll);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
