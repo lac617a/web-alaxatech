@@ -14,7 +14,7 @@ export default function Home() {
   const dotsRef = React.useRef(null);
   let halfContainer;
   const carouselPositions = [];
-  const unsuscribe = ['hero', 'video'];
+  // const unsuscribe = ['hero', 'video'];
   const navigateToTop = useNavigationToTop();
 
   const goCarousel = (children, childrenIndex, scrollTop) => {
