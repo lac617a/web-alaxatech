@@ -41,14 +41,14 @@ export default function Home() {
             arrayOfChildren.forEach((span, index) => {
               if (carouselPositions.indexOf(carouselPositions[i]) === index) {
                 if (childrenIndex === index) {
-                  children.style.opacity = 1;
+                  // children.style.opacity = 1;
                   children.setAttribute('data-snap-current', 'true');
                   window.location.hash = span.dataset.linkTo;
                   span.classList.add('active');
                 } else {
-                  if (!unsuscribe.includes(children.id)) {
-                    children.style.opacity = 0;
-                  }
+                  // if (!unsuscribe.includes(children.id)) {
+                  //   children.style.opacity = 0;
+                  // }
                   children.setAttribute('data-snap-current', 'false');
                 }
               } else {
@@ -68,12 +68,12 @@ export default function Home() {
       const snapCurrent = children.getAttribute('data-snap-current');
       children.style.transition = 'all .3s ease-out 0s';
       if (snapCurrent === 'true') {
-        children.style.opacity = 1;
+        // children.style.opacity = 1;
         cloneElement += `<span class="l-dot active" data-link-to="/#${children.id}"></span>`;
       } else {
-        if (!unsuscribe.includes(children.id)) {
-          children.style.opacity = 0;
-        }
+        // if (!unsuscribe.includes(children.id)) {
+        //   children.style.opacity = 0;
+        // }
         cloneElement += `<span class="l-dot" data-link-to="/#${children.id}"></span>`;
       }
       carouselPositions.push([

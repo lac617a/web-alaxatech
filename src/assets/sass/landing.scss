@@ -21,9 +21,7 @@
       z-index: -1;
       font-family: 'Poppins';
       color: rgba(0, 0, 0, 0.06);
-      font-weight: 700;
-      font-size: 95px;
-      line-height: 70px;
+      @include font(700, 95px, 70px);
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       min-width: 20px;
@@ -37,21 +35,19 @@
           font-weight: 800;
         }
         h1 {
-          font-size: 52px;
-          line-height: 64px;
-          color: #7097FF;
+          @include font_movil(52px, 64px);
+          color: $secondary;
           height: 64px;
         }
         h2 {
+          @include font_movil(48px, 72px);
           font-size: 48px;
           line-height: 72px;
           color: #0B1D40;
         }
       }
       p {
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 28px;
+        @include font(400, 18px, 28px);
         color: #000000;
         max-width: 520px;
       }
@@ -137,16 +133,12 @@
   &-card__content {
     h3 {
       font-family: 'Poppins';
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 30px;
+      @include font(600, 20px, 30px);
       color: #FFFFFF;
       margin-bottom: 8px;
     }
     p {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
+      @include font(500, 16px, 24px);
       color: #E4E4E7;
     }
   }
@@ -332,6 +324,104 @@
     video {
       @include screen();
       object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+}
+@media screen and (max-width: 480px) {
+  .l-hero {
+    &-container {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+    }
+    &-into {
+      grid-column: 1 / -1;
+      grid-row: 2 / 6 span;
+      padding-left: 0;
+      padding: 16px;
+      &__text {
+        @include font_movil(60px, 35px);
+        height: 100%;
+      }
+      .into {
+        margin-bottom: 32px;
+        hgroup {
+          margin-bottom: 12px;
+          h1 {
+            @include font_movil(30px, 45px);
+            height: 50px;
+          }
+          h2 {
+            @include font_movil(30px, 45px);
+          }
+        }
+        p {
+          @include font_movil(14px, 20px);
+          max-width: 316px;
+        }
+      }
+    }
+    &-video {
+      grid-column: 1 / -1;
+      grid-row: 7 span;
+    }
+  }
+  .l-service {
+    height: fit-content !important;
+    &-svg {
+      img {
+        &:nth-child(1) {
+          height: 10%;
+        }
+        &:nth-child(2) {
+          display: none;
+        }
+        &:nth-child(3) {
+          top: 5.5rem;
+          left: 40px;
+        }
+        &:nth-child(4) {
+          top: 5rem;
+          right: -5px;
+        }
+        &:nth-last-child(3) {
+          bottom: 4rem;
+          left: -10px;
+        }
+        &:nth-last-child(2) {
+          height: 3%;
+          bottom: 0;
+          left: 80px;
+        }
+        &:nth-last-child(1) {
+          height: 8%;
+          bottom: 6.7rem;
+          right: -3rem;
+        }
+      }
+    }
+    &-wrap {
+      padding: 92px 18px;
+    }
+    &-box {
+      margin-top: 3rem;
+      flex-direction: column;
+      gap: 32px;
+    }
+    &-card {
+      @include flexbox($gap: 32px);
+      max-width: max-content;
+      &__content {
+        h3 {
+          @include font_movil(16px, 24px);
+        }
+        p {
+          @include font_movil(14px, 20px)
+        }
+      }
     }
   }
 }
