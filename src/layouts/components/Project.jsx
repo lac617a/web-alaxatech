@@ -26,61 +26,63 @@ export default function Project() {
   }, []);
 
   return (
-    <div className="l-project vh l-container-xxl" id="project" data-snap-current="false">
-      <h2 className="l-project-title l-title">Proyectos</h2>
-      <ArrowScroll
-        style={{
-          right: '10%',
-          top: '7rem',
-          transform: 'rotate(-90deg)',
-        }}
-        callback={handleScrollSnap}
-      />
-      <div className="l-project-content">
-        <Slider ref={c => sliderRef.current = c} {...settings}>
-          <figure className="l-card-figure">
-            <img src={Project1} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <h3>Smart home application</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Project2} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <h3>Food app</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Project3} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <h3>NFT Landing page</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Project3} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <h3>NFT Landing page</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Project3} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <h3>NFT Landing page</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Project3} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <h3>NFT Landing page</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Project3} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <h3>NFT Landing page</h3>
-            </figcaption>
-          </figure>
-        </Slider>
+    <div className="l-project vh" id="project" data-snap-current="false">
+      <div className="l-container-xxl">
+        <h2 className="l-project-title l-title">Proyectos</h2>
+        <ArrowScroll
+          style={{
+            right: '10%',
+            top: window.innerWidth > 480 ? '7rem' : '16rem',
+            transform: 'rotate(-90deg)',
+          }}
+          callback={handleScrollSnap}
+        />
+        <div className="l-project-content">
+          <Slider ref={c => sliderRef.current = c} {...settings}>
+            <figure className="l-card-figure">
+              <img src={Project1} alt="Alejandro" />
+              <figcaption className="l-card-figcaption">
+                <h3>Smart home application</h3>
+              </figcaption>
+            </figure>
+            <figure className="l-card-figure">
+              <img src={Project2} alt="Alejandro" />
+              <figcaption className="l-card-figcaption">
+                <h3>Food app</h3>
+              </figcaption>
+            </figure>
+            <figure className="l-card-figure">
+              <img src={Project3} alt="Alejandro" />
+              <figcaption className="l-card-figcaption">
+                <h3>NFT Landing page</h3>
+              </figcaption>
+            </figure>
+            <figure className="l-card-figure">
+              <img src={Project3} alt="Alejandro" />
+              <figcaption className="l-card-figcaption">
+                <h3>NFT Landing page</h3>
+              </figcaption>
+            </figure>
+            <figure className="l-card-figure">
+              <img src={Project3} alt="Alejandro" />
+              <figcaption className="l-card-figcaption">
+                <h3>NFT Landing page</h3>
+              </figcaption>
+            </figure>
+            <figure className="l-card-figure">
+              <img src={Project3} alt="Alejandro" />
+              <figcaption className="l-card-figcaption">
+                <h3>NFT Landing page</h3>
+              </figcaption>
+            </figure>
+            <figure className="l-card-figure">
+              <img src={Project3} alt="Alejandro" />
+              <figcaption className="l-card-figcaption">
+                <h3>NFT Landing page</h3>
+              </figcaption>
+            </figure>
+          </Slider>
+        </div>
       </div>
     </div>
   );

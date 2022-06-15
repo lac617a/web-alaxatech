@@ -149,7 +149,11 @@ html {scroll-behavior: smooth;}
   button, .btn {
     @include font_movil(15px, 22px);
   }
-  .scroll-snap {
-    scroll-snap-type: y proximity;
+  .slick-track {
+    columns: 244px auto;
+    min-width: max-content;
   }
+  // .scroll-snap {
+  //   scroll-snap-type: y proximity;
+  // }
 }

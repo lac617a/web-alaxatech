@@ -4,17 +4,20 @@
 // HERO
 .l-hero {
   scroll-snap-align: start;
+
   &-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
     height: 100%;
   }
+
   &-into {
     position: relative;
     grid-column: 1 / 6;
     grid-row: 3 / -1;
     padding-left: 84px;
+
     &__text {
       position: absolute;
       right: 0;
@@ -26,19 +29,25 @@
       transform: rotate(180deg);
       min-width: 20px;
     }
+
     .into {
       margin-bottom: 32px;
+
       hgroup {
         margin-bottom: 12px;
-        h1, h2 {
+
+        h1,
+        h2 {
           font-family: 'Poppins';
           font-weight: 800;
         }
+
         h1 {
           @include font_movil(52px, 64px);
           color: $secondary;
           height: 64px;
         }
+
         h2 {
           @include font_movil(48px, 72px);
           font-size: 48px;
@@ -46,6 +55,7 @@
           color: #0B1D40;
         }
       }
+
       p {
         @include font(400, 18px, 28px);
         color: #000000;
@@ -53,11 +63,13 @@
       }
     }
   }
+
   &-video {
     grid-column: 6 / -1;
     grid-row: 1 / -1;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0, 0, 0, .4);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+
     video {
       position: relative;
       z-index: -1;
@@ -66,70 +78,87 @@
     }
   }
 }
+
 // SERVICE
 .l-service {
   position: relative;
   background: linear-gradient(180deg, #0147FF -5.76%, #0034BE 100%);
   scroll-snap-align: start;
+
   &-svg {
     position: absolute;
     inset: 0 0 0 0;
     z-index: 1;
+
     &::before {
       content: "";
       position: absolute;
       inset: 0 0 0 0;
       z-index: 2;
     }
+
     img {
       position: absolute;
+
       &:nth-child(2) {
         top: -1rem;
         right: 170px;
       }
+
       &:nth-child(3) {
         top: 10rem;
         left: 150px;
       }
+
       &:nth-child(4) {
         top: 5rem;
         right: 10px;
       }
+
       &:nth-last-child(3) {
         bottom: 4rem;
         left: 0;
       }
+
       &:nth-last-child(2) {
         bottom: 4rem;
         left: 200px;
       }
+
       &:nth-last-child(1) {
         bottom: 10px;
         right: 5px;
       }
     }
   }
+
   &-title {
     color: #FFFFFF;
+
     &::before {
       background: #FFFFFF;
     }
   }
+
   &-wrap {
     padding: 105px 90px;
   }
+
   &-box {
     position: relative;
     z-index: 2;
     @include flexbox($justify: space-between);
     margin-top: 5rem;
   }
+
   &-card {
     max-width: 236px;
   }
+
   &-card__header {
     margin-bottom: 2rem;
   }
+
   &-card__content {
     h3 {
       font-family: 'Poppins';
@@ -137,27 +166,35 @@
       color: #FFFFFF;
       margin-bottom: 8px;
     }
+
     p {
       @include font(500, 16px, 24px);
       color: #E4E4E7;
     }
   }
 }
+
 // PROJECT
 .l-project {
   position: relative;
   overflow: hidden;
+  scroll-snap-align: start;
   padding: 100px 84px 60px 84px;
+  background-color: $neutro-50;
+
   &-title {
     padding-left: 90px;
     color: $dark-primary;
+
     &::before {
       left: 90px !important;
       background: $color-brand;
     }
   }
+
   &-content {
     margin-top: 3rem;
+
     .l-card-figure {
       img {
         filter: grayscale(0%)
@@ -165,19 +202,24 @@
     }
   }
 }
+
 // HowWeWorking
 .l-working {
   @include flexbox();
   scroll-snap-align: start;
   flex: 1 1;
+
   &-title {
     color: $dark-primary;
     margin-bottom: 32px;
+
     &::before {
       background-color: $color-brand;
     }
   }
-  &-left, &-right {
+
+  &-left,
+  &-right {
     position: relative;
     max-width: 50%;
     display: grid;
@@ -185,31 +227,38 @@
     padding: 6rem;
     @include screen();
   }
+
   &-left {
     &__content {
       p {
         max-width: 360px;
+
         &:not(:last-child) {
           margin-bottom: 1rem;
         }
       }
     }
   }
+
   &-right {
     background-color: $dark-primary;
+
     &__circle {
       position: absolute;
       right: 0;
       top: 5rem;
     }
   }
+
   &-nav {
     display: grid;
     gap: 50px;
   }
+
   &-item {
     position: relative;
     @include flexbox($gap: 2rem);
+
     &:not(:last-child)::before {
       content: "";
       position: absolute;
@@ -219,6 +268,7 @@
       height: 60px;
       border-left: 1px dashed $secondary;
     }
+
     &__content {
       h3 {
         font-family: 'Poppins';
@@ -226,6 +276,7 @@
         color: $neutro-200;
         margin-bottom: 8px;
       }
+
       p {
         font-weight: 400;
         color: $neutro-400;
@@ -234,38 +285,46 @@
     }
   }
 }
+
 // WhatOurClientSay
 .l-client {
   background-color: #F2F6FF;
   scroll-snap-align: start;
+
   &-header {
     padding-top: 3rem;
   }
+
   &-content {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
     height: calc(100% - 96px);
+
     .card {
       &:nth-child(1) {
         grid-column: 2 / 3 span;
         grid-row: 3 / 3 span;
       }
+
       &:nth-child(2) {
         grid-column: 5 / 3 span;
         grid-row: 2 / 3 span;
       }
+
       &:nth-child(3) {
         margin-top: 2rem;
-        grid-column:  3 span / -1;
+        grid-column: 3 span / -1;
         grid-row: 2 / 3 span;
       }
+
       &:nth-child(4) {
         margin-left: 3rem;
         margin-top: 1rem;
         grid-column: 3 / 3 span;
         grid-row: 6 / 3 span;
       }
+
       &:nth-child(5) {
         margin-right: 3rem;
         grid-column: 3 span / -2;
@@ -274,23 +333,30 @@
     }
   }
 }
+
 // WhatOurClientSay and OurTeam for title
-.l-client-title, .l-team-title {
+.l-client-title,
+.l-team-title {
   font-size: 32px !important;
   line-height: 48px !important;
   color: $dark-primary;
   text-align: center;
+
   &::before {
     left: 48% !important;
     background: $color-brand;
   }
 }
+
 // OurTeam
 .l-team {
+  scroll-snap-align: start;
   position: relative;
+
   &-header {
     padding-top: 5rem;
   }
+
   &-wrap {
     height: calc(100% - 230px);
     max-width: 1000px;
@@ -299,6 +365,7 @@
     margin: 3rem auto;
   }
 }
+
 // VIDEO
 .l-video {
   position: relative;
@@ -307,20 +374,27 @@
   overflow: hidden;
   scroll-snap-align: start;
   background-color: rgba(0, 0, 0, 0.76);
+
   &-into {
     max-width: 850px;
     text-align: center;
-    p {color: $neutro-300;}
+
+    p {
+      color: $neutro-300;
+    }
   }
+
   &-title {
     font-size: 48px !important;
     color: $secondary;
     margin-bottom: 20px;
   }
+
   &-view {
     position: absolute;
     z-index: -1;
     @include screen();
+
     video {
       @include screen();
       object-fit: cover;
@@ -328,100 +402,159 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  
-}
+@media screen and (max-width: 768px) {}
+
 @media screen and (max-width: 480px) {
+  // HERO
   .l-hero {
     &-container {
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(10, 1fr);
     }
+
     &-into {
       grid-column: 1 / -1;
       grid-row: 2 / 6 span;
       padding-left: 0;
       padding: 16px;
+
       &__text {
-        @include font_movil(60px, 35px);
-        height: 100%;
+        @include font_movil(80px, 60px);
+        height: 102%;
       }
+
       .into {
         margin-bottom: 32px;
+
         hgroup {
           margin-bottom: 12px;
+
           h1 {
             @include font_movil(30px, 45px);
             height: 50px;
           }
+
           h2 {
             @include font_movil(30px, 45px);
           }
         }
+
         p {
           @include font_movil(14px, 20px);
           max-width: 316px;
         }
       }
     }
+
     &-video {
       grid-column: 1 / -1;
-      grid-row: 7 span;
+      grid-row: 7 / -1;
     }
   }
+
+  // SERVICE
   .l-service {
-    height: fit-content !important;
+
     &-svg {
       img {
         &:nth-child(1) {
           height: 10%;
         }
+
         &:nth-child(2) {
           display: none;
         }
+
         &:nth-child(3) {
           top: 5.5rem;
           left: 40px;
         }
+
         &:nth-child(4) {
           top: 5rem;
           right: -5px;
         }
+
         &:nth-last-child(3) {
-          bottom: 4rem;
-          left: -10px;
+          bottom: 3rem;
+          height: 10%;
+          left: -8px;
         }
+
         &:nth-last-child(2) {
           height: 3%;
           bottom: 0;
           left: 80px;
         }
+
         &:nth-last-child(1) {
-          height: 8%;
-          bottom: 6.7rem;
-          right: -3rem;
+          height: 10%;
+          bottom: 6.3rem;
+          right: -3.3rem;
         }
       }
     }
+
     &-wrap {
       padding: 92px 18px;
     }
+
     &-box {
       margin-top: 3rem;
       flex-direction: column;
       gap: 32px;
     }
+
     &-card {
       @include flexbox($gap: 32px);
       max-width: max-content;
+
+      &__header {
+        img {
+          @include screen(44px, 44px);
+        }
+      }
+
       &__content {
         h3 {
           @include font_movil(16px, 24px);
         }
+
         p {
-          @include font_movil(14px, 20px)
+          @include font_movil(14px, 20px);
+          max-width: 236px;
         }
       }
     }
   }
+
+  // PROJECT
+  .l-project {
+    padding: 10rem 16px 0;
+    display: grid;
+    > div {
+      display: grid;
+    }
+  
+    &-title {
+      padding-left: 0;
+  
+      &::before {
+        top: 2.5rem;
+        left: 0 !important;
+      }
+    }
+  
+    &-content {
+      margin-top: 3rem;
+      min-width: 100%;
+  
+      .l-card-figure {
+        img {
+          filter: grayscale(0%)
+        }
+      }
+    }
+  }
+  
 }

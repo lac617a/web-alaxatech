@@ -20,7 +20,10 @@ export default function LayoutHeader() {
         <img src={isMenu ? LogoWhite : getLogo} alt="Company logo" loading="lazy" />
       </figure>
       <nav className={`navbar${isMenu ? ' open' : ''}`}>
-        <ul className="nav" onBlur={() => setIsMenu(false)} role={isMenu && 'button'}>
+        <ul
+          className="nav"
+          onBlur={() => setIsMenu(false)}
+          role={isMenu ? 'button' : 'menu'}>
           <li className="nav-item">
             <HashLink className={changeColor} aria-label="Home" to="/#hero">Home</HashLink>
           </li>
@@ -37,10 +40,14 @@ export default function LayoutHeader() {
             <HashLink className={changeColor} aria-label="Contact" to="/#contact">Contáctanos</HashLink>
           </li>
         </ul>
-        <Network />
-        <Copyright />
+        <div className="l-only-responsive">
+          <Network />
+          <Copyright />
+        </div>
       </nav>
-      <button className={`btn l-menu-btn${isMenu ? ' open' : ''}`} onClick={() => setIsMenu(current => !current)}>
+      <button
+        className={`btn l-menu-btn${isMenu ? ' open' : ''}`}
+        onClick={() => setIsMenu(current => !current)}>
         <div className="l-menu-btn__burger"></div>
       </button>
     </header>
