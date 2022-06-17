@@ -405,6 +405,7 @@
 @media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 480px) {
+
   // HERO
   .l-hero {
     &-container {
@@ -532,23 +533,24 @@
   .l-project {
     padding: 10rem 16px 0;
     display: grid;
-    > div {
+
+    >div {
       display: grid;
     }
-  
+
     &-title {
       padding-left: 0;
-  
+
       &::before {
         top: 2.5rem;
         left: 0 !important;
       }
     }
-  
+
     &-content {
       margin-top: 3rem;
       min-width: 100%;
-  
+
       .l-card-figure {
         img {
           filter: grayscale(0%)
@@ -556,5 +558,174 @@
       }
     }
   }
-  
+
+  // HowWeWorking
+  .l-working {
+    flex-wrap: wrap;
+    height: max-content !important;
+
+    &-left,
+    &-right {
+      scroll-snap-align: start;
+      max-width: 100%;
+      display: grid;
+      padding: 1rem;
+      height: 82vh;
+    }
+
+    &-left {
+      place-items: center start;
+
+      &__content {
+        p {
+          max-width: 260px;
+
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+
+    &-right {
+      height: 100vh;
+
+      &__circle {
+        display: none;
+      }
+    }
+
+    &-nav {
+      display: grid;
+      gap: 64px;
+    }
+
+    &-item {
+      &:not(:last-child)::before {
+        top: 3.8rem;
+        left: 1.4rem;
+        height: 70px;
+        border-left: 2px dashed $secondary;
+      }
+
+      &__content {
+        h3 {
+          @include font_movil(16px, 24px);
+          margin-bottom: 6px;
+        }
+
+        p {
+          @include font_movil(14px, 18px);
+          max-width: 206px;
+        }
+      }
+    }
+
+    &-figure {
+      @include screen(44px, 44px);
+
+      img {
+        @include screen();
+        object-fit: contain;
+      }
+    }
+  }
+
+  // WhatOurClientSay
+  .l-client {
+    padding: 0 16px;
+    overflow: hidden;
+
+    &-header {
+      padding-top: 3rem;
+    }
+
+    &-content {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+      height: calc(100% - 96px);
+
+      .card {
+        &:nth-child(1) {
+          grid-column: 2 / 3 span;
+          grid-row: 3 / 3 span;
+        }
+
+        &:nth-child(2) {
+          grid-column: 5 / 3 span;
+          grid-row: 2 / 3 span;
+        }
+
+        &:nth-child(3) {
+          margin-top: 2rem;
+          grid-column: 3 span / -1;
+          grid-row: 2 / 3 span;
+        }
+
+        &:nth-child(4) {
+          margin-left: 3rem;
+          margin-top: 1rem;
+          grid-column: 3 / 3 span;
+          grid-row: 6 / 3 span;
+        }
+
+        &:nth-child(5) {
+          margin-right: 3rem;
+          grid-column: 3 span / -2;
+          grid-row: 6 / 3 span;
+        }
+      }
+    }
+  }
+
+  // OurTeam
+  .l-team {
+    scroll-snap-align: start;
+    position: relative;
+
+    &-header {
+      padding-top: 5rem;
+    }
+
+    .l-arrows {
+      display: none;
+    }
+
+    .l-card {
+      &-figure {
+        max-width: 180px;
+        height: 220px;
+      }
+    }
+  }
+
+  // WhatOurClientSay and OurTeam for title
+  .l-client-title,
+  .l-team-title {
+    font-size: 24px !important;
+    line-height: 36px !important;
+
+    &::before {
+      left: 45% !important;
+      background: $color-brand;
+    }
+  }
+
+  .l-video {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  // OurTeam
+  .l-team {
+
+    .l-card {
+      &-figure {
+        max-width: 153px;
+      }
+    }
+  }
 }

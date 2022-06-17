@@ -48,7 +48,7 @@
 }
 
 .l-card {
-  scroll-snap-align: start;
+  scroll-snap-align: start end;
   @include flexbox($wrap: wrap, $justify: space-around, $gap: 2rem);
   margin-bottom: 2rem;
 
@@ -56,12 +56,15 @@
     position: relative;
     transition: 300ms;
     overflow: hidden;
-    max-width: 411px;
+    max-width: 300px;
+    max-height: 340px;
+    width: 100%;
+    height: 100%;
 
     &::before {
       content: "";
       position: absolute;
-      inset: 0 0 5px 0;
+      inset: 0 0 0 0;
       background-color: rgba(0, 0, 0, 0.06);
       transition: 300ms;
     }
@@ -82,7 +85,7 @@
       position: relative;
       z-index: -1;
       mix-blend-mode: luminosity;
-      max-width: 300px;
+      object-fit: cover;
       @include screen();
       filter: grayscale(100%);
       transition: 300ms;
@@ -95,7 +98,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 1rem 1rem;
-    inset: 50% 0 5px 0;
+    inset: 50% 0 0 0;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 26.97%, rgba(0, 0, 0, 0.87037) 100%);
 
     p,
@@ -204,6 +207,10 @@ div[class*='l-container-'] {
     &::before {
       background: $color-brand;
     }
+  }
+
+  .l-network {
+    text-align: left !important;
   }
 
   &-aside {
@@ -402,7 +409,8 @@ div[class*='l-container-'] {
   }
 
   .l-card {
-    margin-bottom: 2rem;
+    justify-content: space-between;
+    gap: 13px;
 
     &-figure {
       max-width: 244px;
@@ -488,5 +496,57 @@ div[class*='l-container-'] {
 
   .l-copyright {
     text-align: center;
+  }
+
+  // FOOTER
+  .l-footer {
+    scroll-snap-align: start;
+    gap: 0;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    height: max-content;
+
+    &-aside {
+      scroll-snap-align: start;
+      padding: 48px;
+      max-width: 100%;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    .l-network {
+      margin-bottom: 1rem;
+    }
+
+    .l-copyright {
+      max-width: 148px;
+      text-align: left;
+    }
+
+    &-box {
+      padding: 0 16px;
+      min-height: 100vh;
+    }
+
+    &-form {
+      &__wrap {
+        margin: 48px 0;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      &__primary,
+      &__secondary {
+        width: 100%;
+      }
+
+      .form {
+
+        &-input {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+    }
   }
 }

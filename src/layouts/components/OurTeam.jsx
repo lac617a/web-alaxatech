@@ -2,7 +2,27 @@ import React from 'react';
 import Alejandro from '../../assets/img/team/Alejandro.png';
 import Valeria from '../../assets/img/team/Valeria.png';
 import Antonietta from '../../assets/img/team/Antonietta.png';
+import Hermany from '../../assets/img/team/Hermany.png';
 import ArrowScroll from '../../components/ArrowScroll';
+
+const listTeam = [
+  { name: 'Alejandro MA', direct: 'Founder & CEO', img: Alejandro },
+  { name: 'Valeria Brito', direct: 'Co founder & CDO', img: Valeria },
+  { name: 'Antonietta', direct: 'Project Manager', img: Antonietta },
+  { name: 'Hermany', direct: 'Project Manager', img: Hermany },
+  { name: 'Alejandro MA', direct: 'Founder & CEO', img: Alejandro },
+  { name: 'Valeria Brito', direct: 'Co founder & CDO', img: Valeria },
+];
+
+const Team = ({ img, name, direct }) => (
+  <figure className="l-card-figure">
+    <img src={img} alt={`${name}-${direct}`} />
+    <figcaption className="l-card-figcaption">
+      <p>{direct}</p>
+      <h3>{name}</h3>
+    </figcaption>
+  </figure>
+);
 
 export default function OurTeam() {
   const scrollSnap = React.useRef(null);
@@ -51,15 +71,50 @@ export default function OurTeam() {
     }
   }
 
+  const newNodosForLayoutCard = () => {
+    const arrayCard = [...scrollSnap.current.children];
+    let newArrayOfNode = [];
+    let divParent = document.createElement('div');
+    divParent.className = 'l-card';
+
+    if (window.innerWidth > 480) {
+      arrayCard.forEach(node => {
+        newArrayOfNode.push(node);
+        if (newArrayOfNode.length % 3 === 0) {
+          newArrayOfNode.forEach(setNode => {
+            divParent.appendChild(setNode);
+          });
+
+          newArrayOfNode = [];
+          scrollSnap.current.appendChild(divParent);
+          divParent = document.createElement('div');
+          divParent.className = 'l-card';
+        };
+      });
+    } else {
+      arrayCard.forEach(node => {
+        divParent.appendChild(node);
+      });
+      scrollSnap.current.appendChild(divParent);
+    }
+  };
+
   const handleScrollSnap = React.useCallback(value => {
     goCarousel(value);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   React.useEffect(() => {
+    // newNodosForLayoutCard(); // call it once
     // getCarouselPositions(); // call it once
+    window.addEventListener('resize', newNodosForLayoutCard);
     window.addEventListener('resize', getCarouselPositions);
-    return () => getCarouselPositions();
+    return () => {
+      newNodosForLayoutCard();
+      getCarouselPositions();
+      window.removeEventListener('resize', newNodosForLayoutCard);
+      window.removeEventListener('resize', getCarouselPositions);
+    };
     // eslint-disable-next-line
   }, []);
 
@@ -69,52 +124,9 @@ export default function OurTeam() {
         <h2 className="l-team-title l-title">Nuestro team</h2>
       </div>
       <div ref={scrollSnap} className="l-team-wrap scroll-snap">
-        <div className="l-card" data-current="true">
-          <figure className="l-card-figure">
-            <img src={Alejandro} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <p>Founder & CEO</p>
-              <h3>Alejandro MA</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Valeria} alt="Valeria" />
-            <figcaption className="l-card-figcaption">
-              <p>Co founder & CDO</p>
-              <h3>Valeria Brito</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Antonietta} alt="Antonietta" />
-            <figcaption className="l-card-figcaption">
-              <p>Project Manager</p>
-              <h3>Antonietta</h3>
-            </figcaption>
-          </figure>
-        </div>
-        <div className="l-card" data-current="false">
-          <figure className="l-card-figure">
-            <img src={Alejandro} alt="Alejandro" />
-            <figcaption className="l-card-figcaption">
-              <p>Founder & CEO</p>
-              <h3>Alejandro MA</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Valeria} alt="Valeria" />
-            <figcaption className="l-card-figcaption">
-              <p>Co founder & CDO</p>
-              <h3>Valeria Brito</h3>
-            </figcaption>
-          </figure>
-          <figure className="l-card-figure">
-            <img src={Antonietta} alt="Antonietta" />
-            <figcaption className="l-card-figcaption">
-              <p>Project Manager</p>
-              <h3>Antonietta</h3>
-            </figcaption>
-          </figure>
-        </div>
+        {listTeam.map((team, index) => (
+          <Team key={index} name={team.name} direct={team.direct} img={team.img} />
+        ))}
       </div>
       <ArrowScroll
         style={{
