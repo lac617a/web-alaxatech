@@ -33,6 +33,11 @@
     .into {
       margin-bottom: 32px;
 
+      &-flex {
+        display: flex;
+        align-items: baseline;
+      }
+
       hgroup {
         margin-bottom: 12px;
 
@@ -406,20 +411,13 @@
   }
 }
 
-@media screen and (max-width: 768px) {}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
 
   // HERO
   .l-hero {
-    &-container {
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: repeat(10, 1fr);
-    }
 
     &-into {
-      grid-column: 1 / -1;
-      grid-row: 2 / 6 span;
+      grid-column: 2 / 4 span;
       padding-left: 0;
       padding: 16px;
 
@@ -449,6 +447,174 @@
           max-width: 316px;
         }
       }
+    }
+  }
+
+  // SERVICE
+  .l-service {
+
+    &-wrap {
+      padding: 10rem 4rem;
+      height: 100vh;
+    }
+
+    &-box {
+      justify-content: center;
+      margin-top: 3rem;
+      gap: 1rem;
+    }
+
+    &-card {
+      @include flexbox($wrap: wrap);
+      max-width: max-content;
+
+      &__header {
+        img {
+          @include screen(44px, 44px);
+        }
+      }
+
+      &__content {
+        h3 {
+          @include font_movil(16px, 24px);
+        }
+
+        p {
+          @include font_movil(14px, 20px);
+          max-width: 236px;
+        }
+      }
+    }
+  }
+
+  // HowWeWorking
+  .l-working {
+
+    &-left,
+    &-right {
+      padding: 3rem;
+    }
+
+    &-item {
+      &:not(:last-child)::before {
+        top: 3.8rem;
+        left: 1.4rem;
+        height: 70px;
+        border-left: 2px dashed $secondary;
+      }
+
+      &__content {
+        h3 {
+          @include font_movil(16px, 24px);
+          margin-bottom: 6px;
+        }
+
+        p {
+          @include font_movil(14px, 18px);
+          max-width: 206px;
+        }
+      }
+    }
+
+    &-figure {
+      @include screen(44px, 44px);
+
+      img {
+        @include screen();
+        object-fit: contain;
+      }
+    }
+  }
+
+  // WhatOurClientSay
+  .l-client {
+
+    &-header {
+      padding-top: 66px;
+    }
+
+    &-content {
+      margin-top: 1rem;
+      height: calc(100% - 104px);
+
+      .card {
+        &:nth-child(1) {
+          grid-column: 2 / 4 span;
+          grid-row: 3 / 3 span;
+        }
+
+        &:nth-child(2) {
+          grid-column: 6 / 4 span;
+          grid-row: 1 / 3 span;
+        }
+
+        &:nth-child(3) {
+          margin: 10px;
+          grid-column: 4 span / -1;
+          grid-row: 4 / 3 span;
+        }
+
+        &:nth-child(4) {
+          margin-left: 3rem;
+          margin-top: 1rem;
+          grid-column: 2 / 4 span;
+          grid-row: 6 / 3 span;
+        }
+
+        &:nth-child(5) {
+          margin: 0 2rem;
+          grid-column: 6 / -1;
+          grid-row: 7 / 3 span;
+        }
+      }
+    }
+  }
+
+  // OurTeam
+  .l-team {
+
+    .l-arrows {
+      display: none;
+    }
+  }
+
+  // VIDEO
+  .l-video {
+
+    &-into {
+      max-width: 700px;
+    }
+
+    &-title {
+      font-size: 38px !important;
+    }
+
+    &-view {
+      position: absolute;
+      z-index: -1;
+      @include screen();
+
+      video {
+        aspect-ratio: 1 / 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  // HERO
+  .l-hero {
+    &-container {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+    }
+
+    &-into {
+      grid-column: 1 / -1;
+      grid-row: 2 / 6 span;
+      padding-left: 0;
+      padding: 16px;
     }
 
     &-video {
@@ -511,25 +677,8 @@
     }
 
     &-card {
-      @include flexbox($gap: 32px);
-      max-width: max-content;
-
-      &__header {
-        img {
-          @include screen(44px, 44px);
-        }
-      }
-
-      &__content {
-        h3 {
-          @include font_movil(16px, 24px);
-        }
-
-        p {
-          @include font_movil(14px, 20px);
-          max-width: 236px;
-        }
-      }
+      flex-wrap: nowrap;
+      gap: 32px;
     }
   }
 
@@ -603,36 +752,6 @@
       display: grid;
       gap: 64px;
     }
-
-    &-item {
-      &:not(:last-child)::before {
-        top: 3.8rem;
-        left: 1.4rem;
-        height: 70px;
-        border-left: 2px dashed $secondary;
-      }
-
-      &__content {
-        h3 {
-          @include font_movil(16px, 24px);
-          margin-bottom: 6px;
-        }
-
-        p {
-          @include font_movil(14px, 18px);
-          max-width: 206px;
-        }
-      }
-    }
-
-    &-figure {
-      @include screen(44px, 44px);
-
-      img {
-        @include screen();
-        object-fit: contain;
-      }
-    }
   }
 
   // WhatOurClientSay
@@ -673,15 +792,8 @@
 
   // OurTeam
   .l-team {
-    scroll-snap-align: start;
-    position: relative;
-
     &-header {
       padding-top: 5rem;
-    }
-
-    .l-arrows {
-      display: none;
     }
 
     .l-card {
@@ -710,16 +822,3 @@
   }
 
 }
-
-// @media screen and (max-width: 320px) {
-
-//   // OurTeam
-//   .l-team {
-
-//     .l-card {
-//       &-figure {
-//         max-width: 153px;
-//       }
-//     }
-//   }
-// }

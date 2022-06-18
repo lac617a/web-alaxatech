@@ -26,6 +26,7 @@
   top: 40%;
   left: 2rem;
   @include flexbox($dir: column, $gap: 12px);
+
   &-vertical {
     .l-dot {
       &.active {
@@ -33,6 +34,7 @@
       }
     }
   }
+
   .l-dot {
     display: block;
     border-radius: 50%;
@@ -399,7 +401,58 @@ div[class*='l-container-'] {
 }
 
 // RESPONSIVE
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+
+  // HEADER
+  .l-header {
+    padding: 18px 16px;
+  }
+
+  // FOOTER
+  .l-footer {
+    gap: 1rem;
+
+    &-aside {
+      padding: 48px;
+      max-width: 260px;
+    }
+
+    .l-network {
+      margin-bottom: 1rem;
+    }
+
+    .l-copyright {
+      max-width: 148px;
+      text-align: left;
+    }
+
+    &-box {
+      padding: 0 16px;
+      min-height: 100vh;
+    }
+
+    &-form {
+      &__wrap {
+        margin: 48px 0;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      &__primary,
+      &__secondary {
+        width: 100%;
+      }
+
+      .form {
+
+        &-input {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 480px) {
   .l-dots {
@@ -461,7 +514,6 @@ div[class*='l-container-'] {
     top: 0;
     z-index: 10;
     width: 100vw;
-    padding: 18px 16px;
 
     figure {
       position: relative;

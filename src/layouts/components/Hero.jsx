@@ -20,7 +20,6 @@ export default function Hero() {
       typeSpeed: 100,
       backSpeed: 50,
       loop: true,
-      showCursor: false,
     };
     
     // elRef refers to the <h1> rendered below
@@ -42,7 +41,9 @@ export default function Hero() {
           </h3>
           <div className="into">
             <hgroup>
-              <h1 style={{ whiteSpace: 'pre' }} ref={el}>D</h1>
+              <div className="into-flex">
+                <h1 style={{ whiteSpace: 'pre' }} ref={el}>Desarrollamos</h1>
+              </div>
               <h2>ideas en soluciones digitales</h2>
             </hgroup>
             <p>Somos una empresa de desarrollo digital, que combina el diseño y el software para crear increíbles productos digitales.</p>

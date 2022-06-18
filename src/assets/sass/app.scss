@@ -140,13 +140,22 @@ html {
 
 // END-CARD
 
+/* Cursor */
 // fade typed-cursor
 .typed-cursor {
   opacity: 1;
-  display: none;
+  text-align: center;
+  font-size: 3rem;
+  color: #0147FF;
   animation: typedjsBlink 0.7s infinite;
-  -webkit-animation: typedjsBlink 0.7s infinite;
-  animation: typedjsBlink 0.7s infinite;
+}
+
+/* If fade out option is set */
+
+.typed-fade-out {
+  opacity: 0;
+  transition: opacity .25s;
+  animation: 0;
 }
 
 @keyframes typedjsBlink {
@@ -169,27 +178,13 @@ html {
   }
 }
 
-.typed-fade-out {
-  opacity: 0;
-  transition: opacity .25s;
-  -webkit-animation: 0;
-  animation: 0;
-}
-
 .slick-track {
   columns: 280px auto;
 }
 
-@media screen and (max-width: 480px) {
-
-  button,
-  .btn {
-    @include font_movil(15px, 22px);
-  }
-
-  .slick-track {
-    columns: 244px auto;
-    min-width: max-content;
+@media screen and (max-width: 768px) {
+  .typed-cursor {
+    font-size: xx-large;
   }
 
   // CARD
@@ -217,5 +212,18 @@ html {
         @include font_movil(13px, 16px);
       }
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  button,
+  .btn {
+    @include font_movil(15px, 22px);
+  }
+
+  .slick-track {
+    columns: 244px auto;
+    min-width: max-content;
   }
 }
