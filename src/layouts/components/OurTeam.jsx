@@ -116,7 +116,7 @@ export default function OurTeam() {
   return (
     <div className="l-team vh l-container-xxl" id="team" data-snap-current="false">
       <div className="l-team-header">
-        <h2 className="l-team-title l-title">Nuestro team</h2>
+        <h2 className="l-team-title l-title">Nuestro equipo</h2>
       </div>
       <div ref={scrollSnap} className="l-team-wrap scroll-snap">
         {listTeam.map((team, index) => (
