@@ -76,7 +76,6 @@ export default function OurTeam() {
     let newArrayOfNode = [];
     let divParent = document.createElement('div');
     divParent.className = 'l-card';
-
     if (window.innerWidth > 480 || window.screen.width > 480) {
       arrayCard.forEach(node => {
         newArrayOfNode.push(node);
@@ -105,12 +104,10 @@ export default function OurTeam() {
   }, []);
 
   React.useEffect(() => {
-    // newNodosForLayoutCard(); // call it once
-    // getCarouselPositions(); // call it once
     window.addEventListener('resize', getCarouselPositions);
+    newNodosForLayoutCard();
+    getCarouselPositions();
     return () => {
-      newNodosForLayoutCard();
-      getCarouselPositions();
       window.removeEventListener('resize', getCarouselPositions);
     };
     // eslint-disable-next-line
