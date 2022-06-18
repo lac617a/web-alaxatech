@@ -17,7 +17,7 @@ export default function Hero() {
     AOS.refresh();
 
     const options = {
-      strings: ['Desarrollamos', 'Investigamos', 'Creamos'],
+      strings: ['Diseñando','Desarrollamos', 'Transformando'],
       typeSpeed: 100,
       backSpeed: 50,
       loop: true,
