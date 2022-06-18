@@ -107,12 +107,10 @@ export default function OurTeam() {
   React.useEffect(() => {
     // newNodosForLayoutCard(); // call it once
     // getCarouselPositions(); // call it once
-    window.addEventListener('resize', newNodosForLayoutCard);
     window.addEventListener('resize', getCarouselPositions);
     return () => {
       newNodosForLayoutCard();
       getCarouselPositions();
-      window.removeEventListener('resize', newNodosForLayoutCard);
       window.removeEventListener('resize', getCarouselPositions);
     };
     // eslint-disable-next-line
