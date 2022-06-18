@@ -77,7 +77,7 @@ export default function OurTeam() {
     let divParent = document.createElement('div');
     divParent.className = 'l-card';
 
-    if (window.innerWidth > 480) {
+    if (window.innerWidth > 480 || window.screen.width > 480) {
       arrayCard.forEach(node => {
         newArrayOfNode.push(node);
         if (newArrayOfNode.length % 3 === 0) {
