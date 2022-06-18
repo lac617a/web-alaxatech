@@ -82,11 +82,6 @@ export default function WhatOurClientSay() {
     const client = clientRef.current;
     newNodosForLayout(client, 'l-client-content', [...client.childNodes]);
     getCarouselPosition();
-    window.addEventListener('resize', getCarouselPosition);
-
-    return () => {
-      window.removeEventListener('resize', getCarouselPosition);
-    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
