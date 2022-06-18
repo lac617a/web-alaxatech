@@ -29,7 +29,7 @@
   &-vertical {
     .l-dot {
       &.active {
-        @include screen(32px, 6px !important);
+        @include screen(24px, 6px !important);
       }
     }
   }
