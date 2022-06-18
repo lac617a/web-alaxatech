@@ -1,5 +1,6 @@
 .l-arrows {
   position: absolute;
+  z-index: 10;
   @include flexbox($dir: column, $gap: 2.5rem);
 
   .btn {
@@ -20,12 +21,18 @@
 }
 
 .l-dots {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 40%;
   left: 2rem;
   @include flexbox($dir: column, $gap: 12px);
-
+  &-vertical {
+    .l-dot {
+      &.active {
+        @include screen(32px, 6px !important);
+      }
+    }
+  }
   .l-dot {
     display: block;
     border-radius: 50%;

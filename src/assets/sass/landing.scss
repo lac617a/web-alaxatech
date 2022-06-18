@@ -295,6 +295,10 @@
     padding-top: 3rem;
   }
 
+  .l-dots {
+    display: none;
+  }
+
   &-content {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -633,49 +637,37 @@
 
   // WhatOurClientSay
   .l-client {
-    padding: 0 16px;
-    overflow: hidden;
+    padding: 0;
 
     &-header {
-      padding-top: 3rem;
+      padding-top: 5rem;
+      padding-inline: 16px;
+    }
+
+    .l-dots {
+      display: flex;
     }
 
     &-content {
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      grid-template-rows: repeat(10, 1fr);
-      height: calc(100% - 96px);
+      padding-inline: 16px;
+      @include flexbox($dir: column, $justify: center, $gap: 3rem);
+      height: calc(100vh - 220px);
+      scroll-snap-align: start;
+      width: 100%;
+      min-width: 100%;
 
-      .card {
-        &:nth-child(1) {
-          grid-column: 2 / 3 span;
-          grid-row: 3 / 3 span;
-        }
-
-        &:nth-child(2) {
-          grid-column: 5 / 3 span;
-          grid-row: 2 / 3 span;
-        }
-
-        &:nth-child(3) {
-          margin-top: 2rem;
-          grid-column: 3 span / -1;
-          grid-row: 2 / 3 span;
-        }
-
-        &:nth-child(4) {
-          margin-left: 3rem;
-          margin-top: 1rem;
-          grid-column: 3 / 3 span;
-          grid-row: 6 / 3 span;
-        }
-
-        &:nth-child(5) {
-          margin-right: 3rem;
-          grid-column: 3 span / -2;
-          grid-row: 6 / 3 span;
-        }
+      .card:nth-child(2) {
+        align-self: flex-end;
       }
+    }
+
+    &-wrap {
+      @include flexbox($gap: 25%);
+      scroll-snap-type: x mandatory;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      will-change: scroll-position;
     }
   }
 
@@ -719,6 +711,7 @@
 }
 
 @media screen and (max-width: 320px) {
+
   // OurTeam
   .l-team {
 

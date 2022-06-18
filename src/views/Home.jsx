@@ -6,8 +6,8 @@ import Service from '../layouts/components/Service';
 import Project from '../layouts/components/Project';
 import OurTeam from '../layouts/components/OurTeam';
 import HowWeWorking from '../layouts/components/HowWeWorking';
-import useNavigationToTop from '../utils/useNavigationToTop';
 import WhatOurClientSay from '../layouts/components/WhatOurClientSay';
+import Dots from '../components/Dots';
 
 export default function Home() {
   const mainRef = React.useRef(null);
@@ -15,7 +15,6 @@ export default function Home() {
   let halfContainer;
   const carouselPositions = [];
   // const unsuscribe = ['hero', 'video'];
-  const navigateToTop = useNavigationToTop();
 
   const goCarousel = (children, childrenIndex, scrollTop) => {
     const halfContainers = halfContainer;
@@ -91,13 +90,6 @@ export default function Home() {
       goCarousel(children, childrenIndex, e.target.scrollTop);
     });
   };
-
-  const handleDots = (e) => {
-    if(!e.target.dataset.dots) {
-      navigateToTop(e.target.dataset.linkTo, e.target);
-    }
-    e.stopPropagation();
-  };
   
   React.useEffect(() => {
     window.addEventListener('hashchange', handleScroll);
@@ -113,10 +105,7 @@ export default function Home() {
 
   return (
     <main className="scroll-snap vh" ref={mainRef} onScroll={handleScroll}>
-      <div className="l-dots" ref={dotsRef} onClickCapture={handleDots} data-dots="true">
-        <span className="l-dot active"></span>
-        <span className="l-dot"></span>
-      </div>
+      <Dots ref={dotsRef} />
       <Hero />
       <Service />
       <Project />
