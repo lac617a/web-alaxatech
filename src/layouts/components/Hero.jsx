@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react';
 import AOS from "aos";
 import Typed from 'typed.js';
@@ -42,7 +43,7 @@ export default function Hero() {
           <div className="into">
             <hgroup>
               <div className="into-flex">
-                <h1 style={{ whiteSpace: 'pre' }} ref={el}>Desarrollamos</h1>
+                <h1 style={{ whiteSpace: 'pre' }} ref={el}></h1>
               </div>
               <h2>ideas en soluciones digitales</h2>
             </hgroup>
