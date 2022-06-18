@@ -5,11 +5,13 @@ import Review from '../../components/Review';
 export default function WhatOurClientSay() {
   const clientRef = React.useRef();
   const dotsRef = React.useRef();
+  const carouselPositions = [];
 
   const newNodosForLayout = (parent, className, arrayNode, element = 'div') => {
     let newArrayOfNode = [];
     let divParent = document.createElement(element);
     divParent.className = className;
+    divParent.setAttribute('data-current-snap', true);
 
     if (Array.isArray(arrayNode)) {
       if (window.innerWidth < 480) {
@@ -22,10 +24,12 @@ export default function WhatOurClientSay() {
             parent.appendChild(divParent);
             divParent = document.createElement(element);
             divParent.className = className;
+            divParent.setAttribute('data-current-snap', false);
 
           } else if (arrayNode.length % 2 === 1 && arrayNode.length - 1 === index) {
             newArrayOfNode.forEach(setNode => divParent.appendChild(setNode));
             parent.appendChild(divParent);
+            divParent.setAttribute('data-current-snap', false);
           }
         });
       } else {
@@ -39,14 +43,51 @@ export default function WhatOurClientSay() {
     }
   }
 
+  const getCarouselPosition = () => {
+    let cloneElement = '';
+    [...clientRef.current.childNodes].forEach((_, index) => {
+      if (index === 0) {
+        cloneElement += `<span class="l-dot active"></span>`;
+      } else {
+        cloneElement += `<span class="l-dot"></span>`;
+      }
+      carouselPositions.push([
+        _.offsetLeft,
+        _.offsetLeft + _.offsetWidth
+      ]);
+    });
+    dotsRef.current.innerHTML = cloneElement;
+  }
+
   const handleScrollSnapX = (e) => {
-    console.log(e.target.childNodes)
-    console.log(e.target.childElementCount)
+    const arrayOfChildren = [...dotsRef.current.children];
+
+    [...clientRef.current.childNodes].forEach((node, z) => {
+      carouselPositions.forEach((_, x) => {
+        arrayOfChildren.forEach((span, y) => {
+          if (e.target.scrollLeft === carouselPositions[x][0]) {
+            if (x === z) {
+              node.dataset.currentSnap = true;
+              if (x === y) span.classList.add('active');
+              else span.classList.remove('active');
+            }
+            else node.dataset.currentSnap = false;
+          }
+        });
+      });
+    });
   }
 
   React.useEffect(() => {
     const client = clientRef.current;
-    return () => newNodosForLayout(client, 'l-client-content', [...client.childNodes]);
+    newNodosForLayout(client, 'l-client-content', [...client.childNodes]);
+    getCarouselPosition();
+    window.addEventListener('resize', getCarouselPosition);
+
+    return () => {
+      window.removeEventListener('resize', getCarouselPosition);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -55,7 +96,7 @@ export default function WhatOurClientSay() {
         <div className="l-client-header">
           <h2 className="l-client-title l-title">Lo que dicen nuestros clientes</h2>
         </div>
-        <div className="l-client-wrap" ref={clientRef} onScroll={handleScrollSnapX}>
+        <div className="l-client-wrap" ref={clientRef} onScrollCapture={handleScrollSnapX}>
           <Review
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
             avatar={require('../../assets/img/portfolio/Image-project.png')} />
