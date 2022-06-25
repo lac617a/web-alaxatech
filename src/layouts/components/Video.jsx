@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Video() {
   return (
-    <div className="l-video vh" id="video" data-snap-current="false">
+    <div className="l-video vh snap-start" id="video" data-snap-current="false">
       <figure className="l-video-view">
         <video src={require('../../assets/video/video_clients_alaxatech.mp4')} loop autoPlay muted></video>
       </figure>

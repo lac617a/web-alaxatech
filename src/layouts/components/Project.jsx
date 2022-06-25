@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from "react-slick";
+import {Link} from 'react-router-dom';
 import ArrowScroll from '../../components/ArrowScroll';
 import Project1 from '../../assets/img/portfolio/Image-project.png';
 import Project2 from '../../assets/img/portfolio/Image-project2.png';
@@ -26,7 +27,7 @@ export default function Project() {
   }, []);
 
   return (
-    <div className="l-project vh" id="project" data-snap-current="false">
+    <div className="l-project vh snap-start" id="project" data-snap-current="false">
       <div className="l-container-xxl">
         <h2 className="l-project-title l-title">Proyectos</h2>
         <ArrowScroll
@@ -39,12 +40,14 @@ export default function Project() {
         />
         <div className="l-project-content">
           <Slider ref={c => sliderRef.current = c} {...settings}>
-            <figure className="l-card-figure">
-              <img src={Project1} alt="Alejandro" />
-              <figcaption className="l-card-figcaption">
-                <h3>Smart home application</h3>
-              </figcaption>
-            </figure>
+            <Link to="/project/weld-bear">
+              <figure className="l-card-figure">
+                <img src={Project1} alt="Alejandro" />
+                <figcaption className="l-card-figcaption">
+                  <h3>Smart home application</h3>
+                </figcaption>
+              </figure>
+            </Link>
             <figure className="l-card-figure">
               <img src={Project2} alt="Alejandro" />
               <figcaption className="l-card-figcaption">

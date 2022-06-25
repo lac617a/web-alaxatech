@@ -3,8 +3,6 @@
 
 // HERO
 .l-hero {
-  scroll-snap-align: start;
-
   &-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -88,7 +86,6 @@
 .l-service {
   position: relative;
   background: linear-gradient(180deg, #0147FF -5.76%, #0034BE 100%);
-  scroll-snap-align: start;
 
   &-svg {
     position: absolute;
@@ -183,7 +180,6 @@
 .l-project {
   position: relative;
   overflow: hidden;
-  scroll-snap-align: start;
   padding: 100px 84px 60px 84px;
   background-color: $neutro-50;
 
@@ -211,7 +207,6 @@
 // HowWeWorking
 .l-working {
   @include flexbox();
-  scroll-snap-align: start;
   flex: 1 1;
 
   &-title {
@@ -294,7 +289,6 @@
 // WhatOurClientSay
 .l-client {
   background-color: #F2F6FF;
-  scroll-snap-align: start;
 
   &-header {
     padding-top: 3rem;
@@ -359,7 +353,6 @@
 
 // OurTeam
 .l-team {
-  scroll-snap-align: start;
   position: relative;
 
   &-header {
@@ -381,7 +374,6 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  scroll-snap-align: start;
   background-color: rgba(0, 0, 0, 0.76);
 
   &-into {

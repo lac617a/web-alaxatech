@@ -114,7 +114,7 @@ export default function OurTeam() {
   }, []);
 
   return (
-    <div className="l-team vh l-container-xxl" id="team" data-snap-current="false">
+    <div className="l-team vh l-container-xxl snap-start" id="team" data-snap-current="false">
       <div className="l-team-header">
         <h2 className="l-team-title l-title">Nuestro equipo</h2>
       </div>

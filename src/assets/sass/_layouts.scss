@@ -137,7 +137,7 @@
   z-index: 10;
   @include flexbox($justify: space-between);
   width: 100vw;
-  padding: 32px 84px;
+  padding: 29px 84px;
 
   .nav {
     @include flexbox($gap: 2rem);

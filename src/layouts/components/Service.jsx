@@ -14,7 +14,7 @@ import PointTwenteEight from '../../assets/img/vectores/28-x.svg';
 
 export default function Service() {
   return (
-    <div className="l-service vh" id="service" data-snap-current="false">
+    <div className="l-service vh snap-start" id="service" data-snap-current="false">
       <div className="l-service-svg">
         <img src={Point} alt="vector point" />
         <img src={PointSix} alt="vector points six" />

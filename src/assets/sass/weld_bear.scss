@@ -1,0 +1,51 @@
+@import './mixins';
+@import './colors';
+
+.weldBear {
+  &-hero {
+    @include flexbox($align: center);
+    flex: 1 1;
+    &-right {
+      padding: 8rem;
+      width: clamp(100%, 100%, 50%);
+      p {
+        font-weight: 400;
+        color: #000000;
+      }
+    }
+  }
+  &-figure {
+    margin-top: 4rem;
+    width: clamp(100%, 100%, 50%);
+    img {
+      @include screen();
+      object-fit: contain;
+    }
+  }
+  &-title {
+    font-family: 'Poppins';
+    @include font(800, 48px, 72px);
+    color: $dark-primary;
+  }
+  &-box2 {
+    background-color: $dark-primary;
+    @include flexbox($align: center, $justify: space-between);
+    padding: 0 10rem;
+    &-left, &-right{
+      h2 {
+        color: #FFFFFF;
+        font-size: 32px;
+        line-height: 48px;
+        margin-bottom: 32px;
+        &::before {
+          background-color: $color-brand;
+        }
+      }
+      p {
+        font-weight: 400;
+        color: $neutro-400;
+        max-width: 400px;
+      }
+    }
+  }
+}

@@ -91,7 +91,7 @@ export default function WhatOurClientSay() {
   }, []);
 
   return (
-    <div className="l-client vh" id="what-our-client-say" data-snap-current="false">
+    <div className="l-client vh snap-start" id="what-our-client-say" data-snap-current="false">
       <div className="l-container-xxl">
         <div className="l-client-header">
           <h2 className="l-client-title l-title">Lo que dicen nuestros clientes</h2>

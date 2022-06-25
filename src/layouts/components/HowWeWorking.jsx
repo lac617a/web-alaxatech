@@ -6,7 +6,7 @@ import CircleMid from '../../assets/img/vectores/circle-mid.svg';
 
 export default function HowWeWorking() {
   return (
-    <div className="l-working vh" id="how-we-working" data-snap-current="false">
+    <div className="l-working vh snap-start" id="how-we-working" data-snap-current="false">
       <div className="l-working-left">
         <div className="l-working-left__content">
           <h2 className="l-working-title l-title">¿Cómo trabajamos?</h2>
@@ -25,7 +25,7 @@ export default function HowWeWorking() {
             </figure>
             <div className="l-working-item__content">
               <h3>Investigamos</h3>
-              <p>Realizamos investigación de negocio, competencia y genreación de estrategias</p>
+              <p>Realizamos investigación de negocio, competencia y generación de estrategias</p>
             </div>
           </li>
           <li className="l-working-item">

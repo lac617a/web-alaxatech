@@ -140,6 +140,10 @@ html {
 
 // END-CARD
 
+.snap-start {
+  scroll-snap-align: start;
+}
+
 /* Cursor */
 // fade typed-cursor
 .typed-cursor {
