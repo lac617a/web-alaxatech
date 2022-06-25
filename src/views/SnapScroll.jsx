@@ -79,7 +79,7 @@ export default function SnapScroll({children}) {
     window.addEventListener('hashchange', handleScroll);
     window.addEventListener('resize', getCarouselPosition);
 
-    // getCarouselPosition();
+    getCarouselPosition();
     return () => {
       window.removeEventListener('resize', getCarouselPosition);
       window.removeEventListener('hashchange', handleScroll);
