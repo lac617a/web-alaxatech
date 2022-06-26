@@ -221,6 +221,11 @@ html {
 
 @media screen and (max-width: 480px) {
 
+  * {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
   button,
   .btn {
     @include font_movil(15px, 22px);
