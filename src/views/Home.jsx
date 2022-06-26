@@ -6,7 +6,7 @@ import Project from '../layouts/components/Project';
 import OurTeam from '../layouts/components/OurTeam';
 import HowWeWorking from '../layouts/components/HowWeWorking';
 import WhatOurClientSay from '../layouts/components/WhatOurClientSay';
-import SnapScroll from './SnapScroll';
+import SnapScroll from '../layouts/SnapScroll';
 
 export default function Home() {
   return (

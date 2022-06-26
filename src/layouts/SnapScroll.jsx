@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutFooter from '../layouts/LayoutFooter';
+import LayoutFooter from './LayoutFooter';
 import Dots from '../components/Dots';
 
 export default function SnapScroll({children}) {
@@ -88,7 +88,7 @@ export default function SnapScroll({children}) {
   }, []);
 
   return (
-    <main className="scroll-snap vh" ref={mainRef} onScroll={handleScroll}>
+    <main id="main" className="scroll-snap vh" ref={mainRef} onScroll={handleScroll}>
       <Dots ref={dotsRef} />
       {children}
       <LayoutFooter />

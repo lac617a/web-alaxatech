@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useParams } from 'react-router-dom';
-import SnapScroll from '../SnapScroll';
+import SnapScroll from '../../layouts/SnapScroll';
 import {
   WeldBearHero,
   WeldBearBox2,
