@@ -1,6 +1,4 @@
 import React from 'react';
-import LogoDefault from '../assets/img/Logo-default.svg';
-import LogoWhite from '../assets/img/Logo-white.svg';
 import LayoutFooter from './LayoutFooter';
 import Dots from '../components/Dots';
 
@@ -41,9 +39,9 @@ export default function SnapScroll({ children }) {
                   const [imga] = img;
                   // Change LOGO
                   if ([1,6,7].includes(index)) {
-                    imga.src = LogoWhite;
+                    imga.src = 'https://i.ibb.co/pr9NV5m/Logo.png';
                   } else {
-                    imga.src = LogoDefault;
+                    imga.src = 'https://i.ibb.co/p40RYs8/Logo-1.png';
                   }
                   // Change color for nav
                   if (!window.location.href.includes('project')) {
