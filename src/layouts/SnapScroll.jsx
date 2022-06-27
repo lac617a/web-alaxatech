@@ -1,8 +1,10 @@
 import React from 'react';
+import LogoDefault from '../assets/img/Logo-default.svg';
+import LogoWhite from '../assets/img/Logo-white.svg';
 import LayoutFooter from './LayoutFooter';
 import Dots from '../components/Dots';
 
-export default function SnapScroll({children}) {
+export default function SnapScroll({ children }) {
   const mainRef = React.useRef(null);
   const dotsRef = React.useRef(null);
   let halfContainer;
@@ -33,8 +35,42 @@ export default function SnapScroll({children}) {
               if (carouselPositions.indexOf(carouselPositions[i]) === index) {
                 if (childrenIndex === index) {
                   children.setAttribute('data-snap-current', 'true');
-                  // window.location.hash = span.dataset.linkTo;
                   span.classList.add('active');
+                  const ancla = [...document?.getElementsByTagName('a')].slice(1,6);
+                  const img = [...document?.getElementsByTagName('img')].slice(0,1);
+                  const [imga] = img;
+                  // Change LOGO
+                  if ([1,6,7].includes(index)) {
+                    imga.src = LogoWhite;
+                  } else {
+                    imga.src = LogoDefault;
+                  }
+                  // Change color for nav
+                  if (!window.location.href.includes('project')) {
+                    if ([0, 1, 3, 6, 7].includes(index)) {
+                      ancla.forEach(a => {
+                        a.classList.remove('neutro-700');
+                        a.classList.add('neutro-200');
+                      });
+                    } else {
+                      ancla.forEach(a => {
+                        a.classList.remove('neutro-200');
+                        a.classList.add('neutro-700');
+                      });
+                    }
+                  } else {
+                    if ([1].includes(index)) {
+                      ancla.forEach(a => {
+                        a.classList.remove('neutro-700');
+                        a.classList.add('neutro-200');
+                      });
+                    } else {
+                      ancla.forEach(a => {
+                        a.classList.remove('neutro-200');
+                        a.classList.add('neutro-700');
+                      });
+                    }
+                  }
                 } else {
                   children.setAttribute('data-snap-current', 'false');
                 }
@@ -74,7 +110,7 @@ export default function SnapScroll({children}) {
       goCarousel(children, childrenIndex, e.target.scrollTop);
     });
   };
-  
+
   React.useEffect(() => {
     window.addEventListener('hashchange', handleScroll);
     window.addEventListener('resize', getCarouselPosition);
@@ -84,7 +120,7 @@ export default function SnapScroll({children}) {
       window.removeEventListener('resize', getCarouselPosition);
       window.removeEventListener('hashchange', handleScroll);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
