@@ -45,7 +45,7 @@ export default function SnapScroll({ children }) {
                   }
                   // Change color for nav
                   if (!window.location.href.includes('project')) {
-                    if ([0, 1, 3, 6, 7].includes(index)) {
+                    if ([0, 1, 3, 6].includes(index)) {
                       ancla.forEach(a => {
                         a.classList.remove('neutro-700');
                         a.classList.add('neutro-200');

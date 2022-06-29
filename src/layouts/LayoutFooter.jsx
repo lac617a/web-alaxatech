@@ -34,7 +34,7 @@ export default function LayoutFooter() {
         <Network />
         <div className="l-footer-boxing">
           <h3>Teléfono</h3>
-          <p>+51 999 999 999</p>
+          <p>+51 942 883 987</p>
         </div>
         <div className="l-footer-boxing">
           <h3>Email</h3>
@@ -56,8 +56,8 @@ export default function LayoutFooter() {
                 <input className="form-input" required onInput={handleFormData} type="text" id="form-phone" placeholder="Ingrese número" pattern="[0-9]*" value={numberOnly} />
               </div>
               <div className="form-field">
-                <label className="form-label" htmlFor="form-email">Email*</label>
-                <input className="form-input" required onInput={handleFormData} type="email" id="form-email" placeholder="ejemplo@ejemplo.com" />
+                <label className="form-label" htmlFor="form-email">Email</label>
+                <input className="form-input" onInput={handleFormData} type="email" id="form-email" placeholder="ejemplo@ejemplo.com" />
               </div>
             </div>
             <div className="l-footer-form__secondary">
