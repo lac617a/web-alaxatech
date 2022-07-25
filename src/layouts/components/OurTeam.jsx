@@ -1,17 +1,48 @@
 import React from 'react';
-import Alejandro from '../../assets/img/team/Alejandro.png';
+// MAIN
+import Xinema from '../../assets/img/team/Ximena.png';
 import Valeria from '../../assets/img/team/Valeria.png';
-import Antonietta from '../../assets/img/team/Antonietta.png';
-import Hermany from '../../assets/img/team/Hermany.png';
+import Alejandro from '../../assets/img/team/Alejandro.png';
+// DESIGN
+import Lucia from '../../assets/img/team/Hermany.png';
+import Norayma from '../../assets/img/team/Antonietta.png';
+import Candela from '../../assets/img/team/Candela-Anzorena.webp';
+import Nicolas from '../../assets/img/team/Nicolas-Porcel.jpg';
+// MANAGE
+import Hermany from '../../assets/img/team/Hermany.jpg';
+import Luis from '../../assets/img/team/luis-acosta.webp';
+import Antonietta from '../../assets/img/team/Antonietta.webp';
+import Marianyeli from '../../assets/img/team/Marianyeli.webp';
+// DEV
+import Frito from '../../assets/img/team/adrian-borthomiert.png';
+import Douglas from '../../assets/img/team/douglas-collura.jpg';
+import Yoydev from '../../assets/img/team/dominyel-rvr.jpg';
+import Andri from '../../assets/img/team/andri.webp';
+
+
+
 import ArrowScroll from '../../components/ArrowScroll';
 
 const listTeam = [
+  // Main
   { name: 'Alejandro MA', direct: 'Founder & CEO', img: Alejandro },
   { name: 'Valeria Brito', direct: 'Co founder & CDO', img: Valeria },
+  { name: 'Ximena Fernández', direct: 'Asesora Comercial', img: Xinema },
+  // Design
+  { name: 'Nicolas Porcel', direct: 'UX UI Designer', img: Nicolas },
+  { name: 'Candela Anzorena', direct: 'UX UI Designer', img: Candela },
+  { name: 'Lucia Castillo', direct: 'Diseñadora Gráfica', img: Lucia },
+  { name: 'Norayma Martínez', direct: 'Diseñadora Gráfica', img: Norayma },
+  // Maneger
+  { name: 'Luis Acosta', direct: 'IT Manager', img: Luis },
+  { name: 'Marianyeli Rodriguez', direct: 'QA Analyst ', img: Marianyeli },
   { name: 'Antonietta', direct: 'Project Manager', img: Antonietta },
   { name: 'Hermany', direct: 'Project Manager', img: Hermany },
-  { name: 'Alejandro MA', direct: 'Founder & CEO', img: Alejandro },
-  { name: 'Valeria Brito', direct: 'Co founder & CDO', img: Valeria },
+  // DEv
+  { name: 'Adrian Borthomiert', direct: 'Full Stack Developer', img: Frito },
+  { name: 'Andri Suarez', direct: 'Full Stack Developer', img: Andri },
+  { name: 'Douglas Collura', direct: 'Full Stack Developer', img: Douglas },
+  { name: 'Dominyel Rivera', direct: 'Front End Developer', img: Yoydev },
 ];
 
 const Team = ({ img, name, direct }) => (
@@ -63,7 +94,10 @@ export default function OurTeam() {
     const array = [...scrollSnap.current.children];
     if (Array.isArray(array)) {
       array.forEach(div => {
-        carouselPositions.push([div.offsetTop, div.offsetTop + div.offsetHeight]); // add to array the positions information
+        carouselPositions.push([
+          div.offsetTop,
+          div.offsetTop + div.offsetHeight
+        ]); // add to array the positions information
       })
       halfContainer = scrollSnap.current.offsetHeight / 2;
     } else {
@@ -79,6 +113,7 @@ export default function OurTeam() {
     if (window.innerWidth > 480 || window.screen.width > 480) {
       arrayCard.forEach(node => {
         newArrayOfNode.push(node);
+        console.log(newArrayOfNode)
         if (newArrayOfNode.length % 3 === 0) {
           newArrayOfNode.forEach(setNode => {
             divParent.appendChild(setNode);

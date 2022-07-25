@@ -65,8 +65,9 @@
     position: relative;
     transition: 300ms;
     overflow: hidden;
-    width: clamp(153px, 100%, 300px);
-    max-height: 340px;
+    width: clamp(153px, 100%, 240px);
+    min-height: 240px;
+    max-height: 240px;
     height: 100%;
 
     &::before {
