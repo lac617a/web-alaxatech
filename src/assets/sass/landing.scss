@@ -197,13 +197,17 @@
     margin-top: 3rem;
 
     .l-card-figure {
+      min-height: 400px;
+      max-height: 400px;
+      width: clamp(150px,100%,400px);
       &:hover {
         img {
           transform: scale(1.1);
         }
       }
       img {
-        height: 240px;
+        min-height: 400px;
+        object-fit: fill;
         filter: grayscale(0%)
       }
     }
@@ -570,7 +574,9 @@
 
   // OurTeam
   .l-team {
-
+    .l-team-wrap {
+      scroll-snap-align: none;
+    }
     .l-arrows {
       display: none;
     }

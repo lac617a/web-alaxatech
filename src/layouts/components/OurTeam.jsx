@@ -35,7 +35,7 @@ const listTeam = [
   { name: 'Norayma Martínez', direct: 'Diseñadora Gráfica', img: Norayma },
   // Maneger
   { name: 'Luis Acosta', direct: 'IT Manager', img: Luis },
-  { name: 'Marianyeli Rodriguez', direct: 'QA Analyst ', img: Marianyeli },
+  { name: 'Marianyeli Rodríguez', direct: 'QA Analyst ', img: Marianyeli },
   { name: 'Antonietta Virguez', direct: 'Project Manager', img: Antonietta },
   { name: 'Hermary Romero', direct: 'Project Manager', img: Hermany },
   // DEv

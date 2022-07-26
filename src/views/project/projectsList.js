@@ -61,7 +61,7 @@ export const projectsList = {
     problems: "Mazzio necesitaba una plataforma online donde vender sus productos (e-commerce) de una forma sencilla y efectiva: donde sus clientes pudiesen revisar los productos, elegirlos por talla y color, además de contar con ciertos descuentos a partir de cierta cantidad de prendas.",
     goals: "Realizar una web e-commerce en Wordpress, apoyada de plugin WooCommerce, que permite al usuario revisar las distintas prendas que están disponibles para mujer, hombre, e incluso armar packs con distintas prendas para conseguir el conjunto ideal a un super precio, que podrán observar en el carrito de compras.",
     development: ["Wordpress", "WooCommerce"],
-    imageLarge: require("../../assets/img/portfolio/large/Mazzio.png"),
+    imageLarge: require("../../assets/img/portfolio/large/Mazzino.png"),
     descriptionUser: "",
     user: []
   }

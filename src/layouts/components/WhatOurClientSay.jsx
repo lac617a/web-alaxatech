@@ -98,7 +98,7 @@ export default function WhatOurClientSay() {
         </div>
         <div className="l-client-wrap" ref={clientRef} onScrollCapture={handleScrollSnapX}>
           <Review
-            clientName="Alejandro  Ovejero"
+            clientName="Alejandro Ovejero"
             companyName="Director de TI de Cortex Academy"
             description="Todo según lo acordado, buena respuesta a los requerimientos."
             avatar={require('../../assets/img/default.jpg')} />
@@ -111,7 +111,7 @@ export default function WhatOurClientSay() {
             clientName="Marcelo Collado"
             companyName="Director de TI de Propytec"
             description="Everything great! responsable professionals!"
-            avatar={require('../../assets/img/default.jpg')} />
+            avatar={require('../../assets/img/our-customer/propytec.png')} />
           <Review
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
             avatar={require('../../assets/img/default.jpg')} />
