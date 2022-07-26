@@ -12,6 +12,13 @@ export default function LayoutFooter() {
     message: '',
   };
   const [form, setForm] = React.useState({...formDate});
+  const [success, setSuccess] = React.useState(false);
+
+  React.useEffect(() => {
+    if ( window.location.search.includes('success=true') ) {
+      setSuccess(true);
+    }
+  }, []);
 
   const handleFormData = e => {
     const formatKey = e.target.id.substring(5);
@@ -24,10 +31,10 @@ export default function LayoutFooter() {
     }
   };
 
-  const handleSubmit = e => {
+/*   const handleSubmit = e => {
     e.preventDefault();
-    console.log(form);
-  };
+  }; */
+
   return (
     <footer className="l-footer vh" id="contact" data-snap-current="false">
       <aside className="l-footer-aside">
@@ -44,16 +51,16 @@ export default function LayoutFooter() {
       </aside>
       <div className="l-footer-box">
         <h2 className="l-footer-title l-title">Contáctanos</h2>
-        <form onSubmit={handleSubmit}
+          {success && (
+              <p style={{ color: "green" }}>Gracias por su Mensaje! </p>
+            )}
+        <form
               method="POST"
               name="contactform"
-              data-netlify-honeypot="bot-field"
+              action="/success=true"
               data-netlify= "true"
               className="l-footer-form">
           <input type="hidden" name="form-name" value="contactform" />
-          <div hidden>
-            <input name="bot-field" />
-          </div>
           <div className="l-footer-form__wrap">
             <div className="l-footer-form__primary">
               <div className="form-field">
