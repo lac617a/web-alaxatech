@@ -47,7 +47,12 @@ export default function LayoutFooter() {
         <form onSubmit={handleSubmit}
               method="POST"
               name="contactform"
+              data-netlify-honeypot="bot-field"
               className="l-footer-form">
+          <input type="hidden" name="form-naem" value="contactform" />
+          <div hidden>
+            <input name="bot-field" />
+          </div>
           <div className="l-footer-form__wrap">
             <div className="l-footer-form__primary">
               <div className="form-field">
