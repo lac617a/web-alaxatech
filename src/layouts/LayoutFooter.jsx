@@ -57,6 +57,7 @@ export default function LayoutFooter() {
         <form
               method="POST"
               name="contactform"
+              action="/success=true"
               data-netlify= "true"
               className="l-footer-form">
           <input type="hidden" name="form-name" value="contactform" />
