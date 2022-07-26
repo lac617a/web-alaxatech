@@ -36,8 +36,8 @@ const listTeam = [
   // Maneger
   { name: 'Luis Acosta', direct: 'IT Manager', img: Luis },
   { name: 'Marianyeli Rodriguez', direct: 'QA Analyst ', img: Marianyeli },
-  { name: 'Antonietta', direct: 'Project Manager', img: Antonietta },
-  { name: 'Hermany', direct: 'Project Manager', img: Hermany },
+  { name: 'Antonietta Virguez', direct: 'Project Manager', img: Antonietta },
+  { name: 'Hermary Romero', direct: 'Project Manager', img: Hermany },
   // DEv
   { name: 'Adrian Borthomiert', direct: 'Full Stack Developer', img: Frito },
   { name: 'Andri Suarez', direct: 'Full Stack Developer', img: Andri },

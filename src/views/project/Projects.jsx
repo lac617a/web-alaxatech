@@ -12,7 +12,7 @@ import {
   Box6,
 } from './components/ManyComponents';
 
-const WeldBearOnly = () => {
+const ProjectsOnly = () => {
   const { project } = useParams();
   const {
     title,
@@ -21,7 +21,8 @@ const WeldBearOnly = () => {
     imageLarge,
     development,
     problems,
-    goals
+    goals,
+    descriptionUser
   } = projectsList[project];
 
   return (
@@ -31,7 +32,7 @@ const WeldBearOnly = () => {
       <Box3 title={title} />
       <Box4 title={title} development={development} />
       <Box5 title={title} imageLarge={imageLarge} />
-      <Box6 />
+      {descriptionUser.length > 0 && <Box6 />}
     </>
   );
 }
@@ -39,7 +40,7 @@ const WeldBearOnly = () => {
 export default function Projects() {
   return (
     <SnapScroll>
-      <WeldBearOnly />
+      <ProjectsOnly />
     </SnapScroll>
   );
 }

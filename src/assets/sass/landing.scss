@@ -197,6 +197,11 @@
     margin-top: 3rem;
 
     .l-card-figure {
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
       img {
         height: 240px;
         filter: grayscale(0%)

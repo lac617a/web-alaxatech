@@ -101,7 +101,7 @@ export default function WhatOurClientSay() {
             clientName="Alejandro  Ovejero"
             companyName="Director de TI de Cortex Academy"
             description="Todo según lo acordado, buena respuesta a los requerimientos."
-            avatar={require('../../assets/img/portfolio/Image-project.png')} />
+            avatar={require('../../assets/img/default.jpg')} />
           <Review
             clientName="Wilmer Blasini"
             companyName="CEO & Founder de Weld bear"
@@ -111,13 +111,13 @@ export default function WhatOurClientSay() {
             clientName="Marcelo Collado"
             companyName="Director de TI de Propytec"
             description="Everything great! responsable professionals!"
-            avatar={require('../../assets/img/portfolio/Image-project.png')} />
+            avatar={require('../../assets/img/default.jpg')} />
           <Review
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
-            avatar={require('../../assets/img/portfolio/Image-project.png')} />
+            avatar={require('../../assets/img/default.jpg')} />
           <Review
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
-            avatar={require('../../assets/img/portfolio/Image-project.png')} />
+            avatar={require('../../assets/img/default.jpg')} />
         </div>
         <Dots
           orientation="vertical"
