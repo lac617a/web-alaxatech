@@ -44,30 +44,33 @@ export default function LayoutFooter() {
       </aside>
       <div className="l-footer-box">
         <h2 className="l-footer-title l-title">Contáctanos</h2>
-        <form onSubmit={handleSubmit} className="l-footer-form">
+        <form onSubmit={handleSubmit}
+              method='POST'
+              name='contactform'
+              className="l-footer-form">
           <div className="l-footer-form__wrap">
             <div className="l-footer-form__primary">
               <div className="form-field">
                 <label className="form-label" htmlFor="form-name">Nombre*</label>
-                <input className="form-input" required onInput={handleFormData} type="text" id="form-name" placeholder="Nombre completo" />
+                <input className="form-input" name='name' required onInput={handleFormData} type="text" id="form-name" placeholder="Nombre completo" />
               </div>
               <div className="form-field">
                 <label className="form-label" htmlFor="form-phone">Teléfono*</label>
-                <input className="form-input" required onInput={handleFormData} type="text" id="form-phone" placeholder="Ingrese número" pattern="[0-9]*" value={numberOnly} />
+                <input className="form-input" name='phone' required onInput={handleFormData} type="text" id="form-phone" placeholder="Ingrese número" pattern="[0-9]*" value={numberOnly} />
               </div>
               <div className="form-field">
                 <label className="form-label" htmlFor="form-email">Email</label>
-                <input className="form-input" onInput={handleFormData} type="email" id="form-email" placeholder="ejemplo@ejemplo.com" />
+                <input className="form-input" name='email' onInput={handleFormData} type="email" id="form-email" placeholder="ejemplo@ejemplo.com" />
               </div>
             </div>
             <div className="l-footer-form__secondary">
               <div className="form-field">
                 <label className="form-label" htmlFor="form-company">Compañía</label>
-                <input className="form-input" onInput={handleFormData} type="text" id="form-company" placeholder="Nombre de empresa" />
+                <input className="form-input" name='company' onInput={handleFormData} type="text" id="form-company" placeholder="Nombre de empresa" />
               </div>
               <div className="form-field">
                 <label className="form-label" htmlFor="form-message">Mensaje</label>
-                <input className="form-input" onInput={handleFormData} type="text" id="form-message" placeholder="Escribir un mensaje" />
+                <input className="form-input" name='message' onInput={handleFormData} type="text" id="form-message" placeholder="Escribir un mensaje" />
               </div>
             </div>
           </div>
