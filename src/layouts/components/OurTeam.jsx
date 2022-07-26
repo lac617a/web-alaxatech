@@ -12,7 +12,7 @@ import Nicolas from '../../assets/img/team/Nicolas-Porcel.png';
 import Hermany from '../../assets/img/team/Hermany.jpg';
 import Luis from '../../assets/img/team/luis-acosta.webp';
 import Antonietta from '../../assets/img/team/Antonietta.webp';
-import Marianyeli from '../../assets/img/team/Marianyeli.webp';
+import Marianyeli from '../../assets/img/team/Marianyeli.jfif';
 // DEV
 import Frito from '../../assets/img/team/adrian-borthomiert.png';
 import Douglas from '../../assets/img/team/douglas-collura.jpg';
@@ -28,6 +28,11 @@ const listTeam = [
   { name: 'Alejandro MA', direct: 'Founder & CEO', img: Alejandro },
   { name: 'Valeria Brito', direct: 'Co founder & CDO', img: Valeria },
   { name: 'Ximena Fernández', direct: 'Asesora Comercial', img: Xinema },
+  // DEv
+  { name: 'Adrian Borthomiert', direct: 'Full Stack Developer', img: Frito },
+  { name: 'Andri Suarez', direct: 'Full Stack Developer', img: Andri },
+  { name: 'Douglas Collura', direct: 'Full Stack Developer', img: Douglas },
+  { name: 'Dominyel Rivera', direct: 'Front End Developer', img: Yoydev },
   // Design
   { name: 'Nicolas Porcel', direct: 'UX UI Designer', img: Nicolas },
   { name: 'Candela Anzorena', direct: 'UX UI Designer', img: Candela },
@@ -38,11 +43,6 @@ const listTeam = [
   { name: 'Marianyeli Rodríguez', direct: 'QA Analyst ', img: Marianyeli },
   { name: 'Antonietta Virguez', direct: 'Project Manager', img: Antonietta },
   { name: 'Hermary Romero', direct: 'Project Manager', img: Hermany },
-  // DEv
-  { name: 'Adrian Borthomiert', direct: 'Full Stack Developer', img: Frito },
-  { name: 'Andri Suarez', direct: 'Full Stack Developer', img: Andri },
-  { name: 'Douglas Collura', direct: 'Full Stack Developer', img: Douglas },
-  { name: 'Dominyel Rivera', direct: 'Front End Developer', img: Yoydev },
 ];
 
 const Team = ({ img, name, direct }) => (
