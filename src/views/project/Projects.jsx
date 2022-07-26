@@ -1,29 +1,42 @@
 import React from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SnapScroll from '../../layouts/SnapScroll';
-import {
-  WeldBearHero,
-  WeldBearBox2,
-  WeldBearBox3,
-  WeldBearBox4,
-  WeldBearBox5,
-  WeldBearBox6,
-} from './weld_bear/WeldBear';
+import {projectsList} from './projectsList';
 
-const WeldBearOnly = () => (
-  <>
-    <WeldBearHero />
-    <WeldBearBox2 />
-    <WeldBearBox3 />
-    <WeldBearBox4 />
-    <WeldBearBox5 />
-    <WeldBearBox6 />
-  </>
-);
+import {
+  Hero,
+  Box2,
+  Box3,
+  Box4,
+  Box5,
+  Box6,
+} from './components/ManyComponents';
+
+const WeldBearOnly = () => {
+  const { project } = useParams();
+  const {
+    title,
+    description,
+    imageSmall,
+    imageLarge,
+    development,
+    problems,
+    goals
+  } = projectsList[project];
+
+  return (
+    <>
+      <Hero title={title} description={description} imageSmall={imageSmall} />
+      <Box2 problems={problems} goals={goals} />
+      <Box3 title={title} />
+      <Box4 title={title} development={development} />
+      <Box5 title={title} imageLarge={imageLarge} />
+      <Box6 />
+    </>
+  );
+}
 
 export default function Projects() {
-  // const { project } = useParams();
-
   return (
     <SnapScroll>
       <WeldBearOnly />

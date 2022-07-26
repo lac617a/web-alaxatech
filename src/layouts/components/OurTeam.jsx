@@ -2,7 +2,7 @@ import React from 'react';
 // MAIN
 import Xinema from '../../assets/img/team/Ximena.png';
 import Valeria from '../../assets/img/team/Valeria.png';
-import Alejandro from '../../assets/img/team/Alejandro.png';
+import Alejandro from '../../assets/img/team/Alejandro.jpeg';
 // DESIGN
 import Lucia from '../../assets/img/team/Hermany.png';
 import Norayma from '../../assets/img/team/Antonietta.png';
@@ -113,7 +113,6 @@ export default function OurTeam() {
     if (window.innerWidth > 480 || window.screen.width > 480) {
       arrayCard.forEach(node => {
         newArrayOfNode.push(node);
-        console.log(newArrayOfNode)
         if (newArrayOfNode.length % 3 === 0) {
           newArrayOfNode.forEach(setNode => {
             divParent.appendChild(setNode);

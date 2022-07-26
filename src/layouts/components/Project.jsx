@@ -2,9 +2,19 @@ import React from 'react';
 import Slider from "react-slick";
 import {Link} from 'react-router-dom';
 import ArrowScroll from '../../components/ArrowScroll';
-import Project1 from '../../assets/img/portfolio/Image-project.png';
-import Project2 from '../../assets/img/portfolio/Image-project2.png';
-import Project3 from '../../assets/img/portfolio/Image-project3.png';
+import WeldBear from '../../assets/img/portfolio/Weld-Bear.png';
+import OndaCultura from '../../assets/img/portfolio/Onda-Cultura.png';
+import Phamto from '../../assets/img/portfolio/Phamto.png';
+import Upgrap from '../../assets/img/portfolio/Upgrap.png';
+import Gamelot from '../../assets/img/portfolio/Gamelot.png';
+
+const projects = [
+  {name: 'Weld Bear', url: 'weld-bear', img: WeldBear},
+  {name: 'Onda Cultura', url: 'onda-cultura', img: OndaCultura},
+  {name: 'Phamto', url: 'phamto', img: Phamto},
+  {name: 'Upgrap', url: 'upgrap', img: Upgrap},
+  {name: 'Gamelot', url: 'gamelot', img: Gamelot},
+];
 
 export default function Project() {
   const sliderRef = React.useRef(null);
@@ -40,50 +50,16 @@ export default function Project() {
         />
         <div className="l-project-content">
           <Slider ref={c => sliderRef.current = c} {...settings}>
-            <Link to="/project/weld-bear">
-              <figure className="l-card-figure">
-                <img src={Project1} alt="Alejandro" />
-                <figcaption className="l-card-figcaption">
-                  <h3>Smart home application</h3>
-                </figcaption>
-              </figure>
-            </Link>
-            <figure className="l-card-figure">
-              <img src={Project2} alt="Alejandro" />
-              <figcaption className="l-card-figcaption">
-                <h3>Food app</h3>
-              </figcaption>
-            </figure>
-            <figure className="l-card-figure">
-              <img src={Project3} alt="Alejandro" />
-              <figcaption className="l-card-figcaption">
-                <h3>NFT Landing page</h3>
-              </figcaption>
-            </figure>
-            <figure className="l-card-figure">
-              <img src={Project3} alt="Alejandro" />
-              <figcaption className="l-card-figcaption">
-                <h3>NFT Landing page</h3>
-              </figcaption>
-            </figure>
-            <figure className="l-card-figure">
-              <img src={Project3} alt="Alejandro" />
-              <figcaption className="l-card-figcaption">
-                <h3>NFT Landing page</h3>
-              </figcaption>
-            </figure>
-            <figure className="l-card-figure">
-              <img src={Project3} alt="Alejandro" />
-              <figcaption className="l-card-figcaption">
-                <h3>NFT Landing page</h3>
-              </figcaption>
-            </figure>
-            <figure className="l-card-figure">
-              <img src={Project3} alt="Alejandro" />
-              <figcaption className="l-card-figcaption">
-                <h3>NFT Landing page</h3>
-              </figcaption>
-            </figure>
+            {projects.map((project, index) => (
+              <Link key={index} to={`/project/${project.url}`}>
+                <figure className="l-card-figure">
+                  <img src={project.img} alt={project.name} />
+                  <figcaption className="l-card-figcaption">
+                    <h3>{project.name}</h3>
+                  </figcaption>
+                </figure>
+              </Link>
+            ))}
           </Slider>
         </div>
       </div>
