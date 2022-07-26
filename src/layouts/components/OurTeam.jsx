@@ -7,7 +7,7 @@ import Alejandro from '../../assets/img/team/Alejandro.jpeg';
 import Lucia from '../../assets/img/team/Hermany.png';
 import Norayma from '../../assets/img/team/Antonietta.png';
 import Candela from '../../assets/img/team/Candela-Anzorena.webp';
-import Nicolas from '../../assets/img/team/Nicolas-Porcel.jpg';
+import Nicolas from '../../assets/img/team/Nicolas-Porcel.png';
 // MANAGE
 import Hermany from '../../assets/img/team/Hermany.jpg';
 import Luis from '../../assets/img/team/luis-acosta.webp';
