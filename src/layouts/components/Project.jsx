@@ -43,7 +43,7 @@ export default function Project() {
         <ArrowScroll
           style={{
             right: '10%',
-            top: window.innerWidth > 480 ? '7rem' : '16rem',
+            top: window.innerWidth > 480 ? '7rem' : '13rem',
             transform: 'rotate(-90deg)',
           }}
           callback={handleScrollSnap}

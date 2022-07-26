@@ -113,11 +113,15 @@ export default function WhatOurClientSay() {
             description="Everything great! responsable professionals!"
             avatar={require('../../assets/img/our-customer/propytec.png')} />
           <Review
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
+            clientName="Alejandro Ovejero"
+            companyName="Director de TI de Cortex Academy"
+            description="Todo según lo acordado, buena respuesta a los requerimientos."
             avatar={require('../../assets/img/default.jpg')} />
           <Review
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
-            avatar={require('../../assets/img/default.jpg')} />
+            clientName="Marcelo Collado"
+            companyName="Director de TI de Propytec"
+            description="Everything great! responsable professionals!"
+            avatar={require('../../assets/img/our-customer/propytec.png')} />
         </div>
         <Dots
           orientation="vertical"
